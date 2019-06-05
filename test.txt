@@ -1,1 +1,13 @@
-test from master
+test git stash
+
+git rebase (to prev commits)
+git reset (reset head to currenct working copy) -- will override changes if pulled from master
+
+----- API testing using Python
+python -m pip install --upgrade pip
+pip install requests
+__name__ is a global variables, set as __main__ when invoking a program directly
+
+1D array [0]*N
+2D array [[0]*rows]*col
+d = dict() like Hash or Map in Java with key/pair

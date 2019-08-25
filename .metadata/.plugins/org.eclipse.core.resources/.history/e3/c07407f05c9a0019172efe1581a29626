@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package src.myTests;
+
+import java.util.Scanner;
+
+/**
+ * @author lonet
+ *
+ */
+public class Assignment2 {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		 
+	       while(in.hasNextLine()){
+	    	   String S1=in.next();
+	    	   String L=in.next();
+	    	   
+	       }
+	}
+
+}

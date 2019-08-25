@@ -1,0 +1,5 @@
+#flask for Web Development
+create virtualenv - pip install virtualenv and pip install virtualenvwrapper-win --for managing multiple envs
+go to env dir
+pip install flask
+create a script and run

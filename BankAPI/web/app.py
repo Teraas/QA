@@ -19,7 +19,7 @@ def UserExists(username):
         return True
         
 
-Class Register(Resource):
+class Register(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -98,7 +98,7 @@ def updateDebt(username,balance):
     }
     )
     
-Class Add(Resource):
+class Add(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -120,7 +120,7 @@ Class Add(Resource):
         return jsonify(returnDictionary(200,"Amount added successfully"))
         
         
-Class Transfer(Resource):
+class Transfer(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -148,7 +148,7 @@ Class Transfer(Resource):
         return jsonify(returnDictionary(200,"Amount transferred successfully"))
         
         
-Class Balance(Resource):
+class Balance(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -169,7 +169,7 @@ Class Balance(Resource):
         return jsonify(retJson)
         
 
-Class TakeLoan(Resource):
+class TakeLoan(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -186,7 +186,7 @@ Class TakeLoan(Resource):
         updateDebt(username, debt+amount)
         return jsonify(returnDictionary(200,"Load added successfully"))
 
-Class PayLoan(Resource):
+class PayLoan(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]

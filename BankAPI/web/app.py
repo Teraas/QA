@@ -109,7 +109,7 @@ class Add(Resource):
         if error:
             return jsonify(retJson)
             
-        if money =<0:
+        if money <=0:
             return jsonify(returnDictionary(304,"Amount entered should more than 0"))
         cash = cashWithUser(username)
         money -=1

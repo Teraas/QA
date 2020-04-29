@@ -132,7 +132,7 @@ class Transfer(Resource):
         if error:
             return jsonify(retJson)
         cash = cashWithUser(username)
-        if cash =<0:
+        if cash <=0:
             return jsonify(returnDictionary(304,"You are out of money, please add"))
         cash = cashWithUser(username)
         

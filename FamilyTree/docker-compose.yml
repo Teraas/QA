@@ -1,10 +1,10 @@
-version: '1'
+version: '3'
 
 services:
     web:
         build: ./api
         ports:
-            - "5000:5000"
+            - "5001:5001"
         links:
             - db
     db:

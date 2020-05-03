@@ -33,7 +33,7 @@ class Register(Resource):
         users.insert({"Username":postedData["username"],"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
             "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
             "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
-            "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]]
+            "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]
         })
         retJson = {
                 "status":200,
@@ -59,7 +59,7 @@ class Update(Resource):
                 {"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
                 "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
                 "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
-                "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]]
+                "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]
         }
         })
         retJson = {

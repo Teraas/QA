@@ -27,6 +27,9 @@ class GetUserDetails(Resource):
             return jsonify(retJson)
         resp = users.find({
             "Username":username
+            },{
+        
+            "_id": 0
         })[0]
         print (resp)
         print (resp.__class__)

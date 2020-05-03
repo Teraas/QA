@@ -11,14 +11,20 @@ users= db["Users"]
 
 def UserExists(username):
     if (users.find({"Username":username}).count == 0):
-        return False
-    else:
         return True
+    else:
+        return False
         
 class GetUserDetails(Resource):
-    def get(self):
-        username=request.form['username']
-        
+    def post(self):
+        postedData=request.get_json()
+        username=postedData["username"]
+        if not UserExists(username):
+            retJson = {
+                "status":301,
+                "msg":"Invalid Username"
+            }
+            return jsonify(retJson)
         resp = users.find({
             "Username":username
         })
@@ -52,7 +58,7 @@ class Update(Resource):
         postedData=request.get_json()
         username = postedData["username"]
         
-        if UserExists(username):
+        if not UserExists(username):
             retJson = {
                 "status":301,
                 "msg":"Invalid Username"

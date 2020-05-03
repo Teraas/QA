@@ -56,7 +56,7 @@ class Update(Resource):
             "Username":username
         },{
             "$set":{
-                {"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
+                "Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
                 "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
                 "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
                 "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]

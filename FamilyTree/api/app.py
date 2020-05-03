@@ -9,6 +9,12 @@ client = MongoClient("mongodb://db:27017")
 db = client.FamilyTreeDB
 users= db["Users"]
 
+def UserExists(username):
+    if (users.find({"Username":username}).count == 0):
+        return False
+    else:
+        return True
+        
 class GetUserDetails(Resource):
     def get(self):
         username=request.form['username']
@@ -33,7 +39,7 @@ class Register(Resource):
         users.insert({"Username":postedData["username"],"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
             "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
             "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
-            "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]
+            "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"],"Name":postedData["name"]
         })
         retJson = {
                 "status":200,
@@ -56,7 +62,7 @@ class Update(Resource):
             "Username":username
         },{
             "$set":{
-                "Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
+                "Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-law"],
                 "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
                 "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
                 "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"]

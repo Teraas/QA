@@ -10,13 +10,15 @@ db = client.FamilyTreeDB
 users= db["Users"]
 
 class GetUserDetails(Resource):
-    def get(username):
+    def get(self):
+        username=request.form['username']
+        
         resp = users.find({
             "Username":username
         })
         return jsonify(resp)
 
-Class Register(Resource):
+class Register(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -39,7 +41,7 @@ Class Register(Resource):
             }
         return jsonify(retJson)
 
-Class Update(Resource):
+class Update(Resource):
     def post(self):
         postedData=request.get_json()
         username = postedData["username"]
@@ -68,5 +70,6 @@ Class Update(Resource):
 
 api.add_resource(Register,'/register')
 api.add_resource(Update,'/update')
+api.add_resource(GetUserDetails,'/getuserdetails')
 if __name__=="__main__":
 	app.run(debug=True,host='0.0.0.0',port='5001')

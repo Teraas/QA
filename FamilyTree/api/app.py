@@ -28,6 +28,8 @@ class GetUserDetails(Resource):
         resp = users.find({
             "Username":username
         })[0]
+        print (resp)
+        print (resp.__class__)
         return jsonify(resp)
 
 class Register(Resource):

@@ -19,7 +19,7 @@ class GetUserDetails(Resource):
     def post(self):
         postedData=request.get_json()
         username=postedData["username"]
-        if not UserExists(username):
+        if UserExists(username):
             retJson = {
                 "status":301,
                 "msg":"Invalid Username"
@@ -42,7 +42,7 @@ class Register(Resource):
             }
             return jsonify(retJson)
         
-        users.insert({"Username":postedData["username"],"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-lay"],
+        users.insert({"Username":postedData["username"],"Brother":postedData["brother"],"Sister":postedData["sister"],"Brother-In-Law":postedData["brother-in-law"],
             "Sister-In-Law":postedData["sister-in-law"],"Father-In-Law":postedData["father-in-law"],"Mother-In-Law":postedData["mother-in-law"],"Mother":postedData["mother"],
             "Father":postedData["father"],"Son":postedData["son"],"Daughter":postedData["daughter"],
             "Son-In-Law":postedData["son-in-law"],"Daughter In-Law":postedData["daughter-in-law"],"Name":postedData["name"]

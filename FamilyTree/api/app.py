@@ -27,7 +27,7 @@ class GetUserDetails(Resource):
             return jsonify(retJson)
         resp = users.find({
             "Username":username
-        })
+        })[0]
         return jsonify(resp)
 
 class Register(Resource):

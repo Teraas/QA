@@ -28,7 +28,7 @@ class GetUserDetails(Resource):
         resp = users.find({
             "Username":username
             },{
-        
+            
             "_id": 0
         })[0]
         print (resp)
@@ -63,7 +63,7 @@ class Update(Resource):
         postedData=request.get_json()
         username = postedData["username"]
         
-        if not UserExists(username):
+        if UserExists(username):
             retJson = {
                 "status":301,
                 "msg":"Invalid Username"

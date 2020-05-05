@@ -85,8 +85,12 @@ class Update(Resource):
             }
         return jsonify(retJson)
 
+class GetDBDetails(Resource):
+    def get(self):
+        return jsonify(db.list_collection_names())
 api.add_resource(Register,'/register')
 api.add_resource(Update,'/update')
 api.add_resource(GetUserDetails,'/getuserdetails')
+api.add_resource(GetDBDetails,'/getdbdetails')
 if __name__=="__main__":
 	app.run(debug=True,host='0.0.0.0',port='5001')

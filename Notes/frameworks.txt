@@ -1,0 +1,50 @@
+https://total-qa.com/cucumber-bdd-with-selenium-webdriver-and-testng-framework/
+
+TestNG cucumber framework
+
+Runner class-
+@CucumberOptions=( glue={"automation.stepDefs"},
+					features="src/main/Java/features",
+					plugin={"pretty","html:target/cucumber-reports/cucumber-pretty"}
+
+
+)
+public static webDriver=null;
+
+\"(.*)\" Public TetsNGCucumber runner;
+mvm verify
+@BEforeClass
+public void setup(){
+System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		driver = new ChromeDriver();
+		testRunner = new TestNGCucumberRunner(TestCucumber.class);
+}
+
+@Test(description="login",dataProvider="features")
+public void login(CucumberFeatureWrapper cFeature)
+	{
+		testRunner.runCucumber(cFeature.getCucumberFeature());
+	}
+@DataProvider(name="features")
+public Object[][] getFeatures()
+	{
+		return testRunner.provideFeatures();
+	}
+	
+pom
+plugins
+	plugin
+		groupdId
+		artifactId
+		executions
+			execution
+				phase
+				configuration
+				
+testng.xml
+
+<suite name="suite"
+<test name=test1"
+	<parameter name="brwser" value="firefox"
+		classes
+			class name=""

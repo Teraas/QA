@@ -1,0 +1,48 @@
+#sql queries
+
+update security_master.reference.pnl_subtype set is_swap=1, is_cfd=1
+WHERE 1=1
+and type = 6
+and subtype = 1
+
+USE [security_master]
+GO
+BEGIN
+update validation.validation_rule 
+set is_active=1 
+where rule_id in(1);
+END
+GO
+
+USE [seed]
+GO
+
+BEGIN TRANSACTION
+GO
+
+IF (@@servername in ('PHOBOSDB1A','GOLDENDB1'))
+BEGIN
+
+BEGIN
+DECLARE @next_id int
+    SELECT @next_id = max(attr_id) FROM txn_attr_meta (nolock)
+
+IF NOT EXISTS (SELECT * FROM txn_attr_meta WHERE col_name = 'test_iattr')
+BEGIN
+INSERT INTO dbo.txn_attr_meta VALUES (@next_id + 1, 'test_iattr', 'Test Integer Attribute', 'int', 'txn_iattr', NULL, 1, 0, 'desco', 0, 'test')
+END
+
+IF NOT EXISTS (SELECT * FROM txn_attr_meta WHERE col_name = 'test_cattr')
+BEGIN
+INSERT INTO dbo.txn_attr_meta VALUES (@next_id + 2, 'test_cattr', 'Test String Attribute', 'char', 'txn_cattr', NULL, 1, 0, 'desco', 0, 'test')
+END
+
+IF NOT EXISTS (SELECT * FROM txn_attr_meta WHERE col_name = 'test_rattr')
+BEGIN
+INSERT INTO dbo.txn_attr_meta VALUES (@next_id + 3, 'test_rattr', 'Test Double Attribute', 'double', 'txn_rattr', NULL, 1, 0, 'desco', 0, 'test')
+END
+
+END
+
+END
+GO

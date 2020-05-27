@@ -1,0 +1,30 @@
+test git stash
+
+git rebase (to prev commits)
+git reset (reset head to currenct working copy) -- will override changes if pulled from master
+
+
+
+checkout branch:
+git checkout branchname
+
+git fetch --all
+git checkout origin/master -- <your_file_path>
+git add <your_file_path>
+git commit -m "<your_file_name> updated"
+
+git fetch origin master:tmp
+git rebase tmp
+git push origin HEAD:master
+git branch -D tmp
+
+Pull issue:
+git reset --hard origin/master
+git branch ACS-116-create-dealchooser-component --set-upstream-to=origin/feature/ACS-116-create-dealchooser-component
+Commit issue:
+Git reset HEAD
+
+git checkout --theirs my/file
+git show feature-1
+git tag -a feature-1 -m "test data"
+git push origin feature/ACS-118-jest-create-test-data feature-1

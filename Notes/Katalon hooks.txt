@@ -1,0 +1,114 @@
+import org.apache.http.HttpResponse
+import org.apache.http.client.HttpClient
+import org.apache.http.client.methods.HttpPost
+import org.apache.http.entity.ContentType
+import org.apache.http.entity.StringEntity
+import org.apache.http.impl.client.HttpClients
+
+import com.google.gson.Gson
+import com.kms.katalon.core.annotation.AfterTestCase
+import com.kms.katalon.core.annotation.AfterTestSuite
+import com.kms.katalon.core.annotation.BeforeTestCase
+import com.kms.katalon.core.annotation.BeforeTestSuite
+import com.kms.katalon.core.context.TestCaseContext
+import com.kms.katalon.core.context.TestSuiteContext
+import com.kms.katalon.core.util.KeywordUtil
+
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import internal.GlobalVariable as GlobalVariable
+
+class TestHooks {
+	
+	
+	//zyphr Config
+	private static String zyphyUrl = 'http://qa1.nyc.deshaw.com:1212/executeTests'
+	private static String zyphyProj = 'QA'
+	private static final String PASS = 'PASS'
+	private static final String FAIL = 'FAIL'
+	public static zapimap = (Map)GlobalVariable.ZyphyID
+	
+	/**
+	 * Executes before every test case starts.
+	 * @param testCaseContext related information of the executed test case.
+	 */
+	@BeforeTestCase
+	def startingTestCase(TestCaseContext testCaseContext) {
+		
+		
+		
+	}
+
+	/**
+	 * Executes after every test case ends.
+	 * @param testCaseContext related information of the executed test case.
+	 */
+	@AfterTestCase
+	def finishedTestCase(TestCaseContext testCaseContext) {
+		String zapi = GlobalVariable.TCID
+		if(testCaseContext.getTestCaseStatus() == 'PASSED' && zapi != ''){
+			
+				zapimap.put(zapi, PASS)
+			
+		}else if(zapi != '')
+		{
+			
+		zapimap.put(zapi, FAIL)
+		}
+		else 
+		zapimap.put(zapi, FAIL)
+		println zapimap
+	}
+
+	/**
+	 * Executes before every test suite starts.
+	 * @param testSuiteContext: related information of the executed test suite.
+	 */
+	@BeforeTestSuite
+	def startedTestSuite(TestSuiteContext testSuiteContext) {
+		println testSuiteContext.getTestSuiteId()
+	}
+
+	/**
+	 * Executes after every test suite ends.
+	 * @param testSuiteContext: related information of the executed test suite.
+	 */
+	@AfterTestSuite
+	def finishedTestSuite(TestSuiteContext testSuiteContext) {
+		
+		if(zapimap.isEmpty()){
+			println 'No test cases are executed in the suite'
+			return
+		}
+		
+		println "Result : "+zapimap
+		
+			postToZapi(zapimap)
+			
+		
+	}
+	
+	private void postToZapi(Map<String, String> result){
+		
+		KeywordUtil.logInfo('Preparing JSON data which needs to be posted')
+		JsonSlurper json = new JsonSlurper()
+		Gson gsonObj = new Gson()
+		String jsonString = gsonObj.toJson(result)
+		jsonString='{"Project": "QA","Release": "default","Cycle": "default","assignee": "kumarh","failure_email_recipient": "kumarh@arcesium.com","test_result_map":' + jsonString +'}'
+		json.parseText(jsonString)
+		println json
+		println jsonString
+		KeywordUtil.logInfo('Creating POST Call')
+		HttpPost post = new HttpPost(zyphyUrl)
+		StringEntity entity = new StringEntity(jsonString, ContentType.APPLICATION_FORM_URLENCODED)
+		post.setEntity(entity)
+		println entity
+		println JsonOutput.toJson(json)
+		HttpClient client = HttpClients.createDefault()
+		HttpResponse respone = client.execute(post);
+		KeywordUtil.logInfo('Post call completed and the status is :'+respone.getStatusLine())
+		
+	}
+	
+	
+}

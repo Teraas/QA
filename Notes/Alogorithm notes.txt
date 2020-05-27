@@ -1,0 +1,292 @@
+-----Collections----
+#Set to Arrays
+Set<String> s = new HashSet<String>();
+String arr[] = new String[s.size()];
+arr=s.toArray(arr);
+
+List have order as per insertion, and allows duplicates
+Set is unordered, no duplicates
+
+ ----TreeMap---
+uses red bkack tree
+TreeMap<Integer, Integer> A = new TreeMap<Integer, Integer>()
+A.put(K, V); // O(log n)
+A.remove(K); // O(log n)
+A.containsKey(K)  // O(log n)
+A.get(K)     // O(log n)
+A.firstKey()
+A.lastKey() 
+for (Map.Entry<Integer, Integer> entry : A.entrySet()) {
+        // entry.getKey() has the key, entry.getValue() has the value
+    } 
+	
+Pattern p = Pattern.compile("\\b[a-zA-Z]"); 
+        Matcher m = p.matcher(s);
+^ – Placed before the word to match
+$ – Placed at the end of a word to match
+\b – Checks whether a pattern begin or end on a word boundary
+\B – Matches the expression on a non-word boundary
+\A – The beginning of the input
+\G – Requires to match to occur only at the end of the previous match
+\Z – The end of the input but for the final terminator, if any
+\z —The end of the input
+
+class AgeComparator implements Comparator<Student>{  
+public int compare(Student s1,Student s2){  
+if(s1.age==s2.age)  
+return 0;  
+else if(s1.age>s2.age)  
+return 1;  
+else  
+return -1;  
+}  
+		
+--- Heap DS / Min-Heap ---
+a Complete BST -- all nodes with 2 leaves
+root value more or equal to childrens 
+https://www.interviewbit.com/tutorial/heap-sort-algorithm/
+https://www.geeksforgeeks.org/count-distinct-elements-in-every-window-of-size-k/
+
+2D Arrays
+
+Q:  Given NxN array, row ascending and column ascending, find an element.
+
+ 
+
+Arrays:
+
+Q: Union and Intersection of 2 Sorted Arrays
+
+Q: Find Missing Number from a sequence.
+
+-          Sum the numbers and substract from Sequence sum.
+
+-          XOR with correct sequence
+
+How to find minimum distance between 2 number of an Array.
+
+-          Traverse and find either of the elements and then find the other number, update the minDistance. Keep traversing until last element if number is found then update minDistance if less than current.
+
+How to find Leaders in a Array. (Leader is max from right)
+
+ 
+
+How to find Majority Element (element repeating by n/2 times).
+
+-          BST
+
+-          Moore’s voting (find majority and then check if it is actually majority)
+
+Q: How to find a number occurring odd number of times in Array.
+
+-          HashMap or XOR
+
+Q:
+
+ 
+
+Linked Lists:
+
+LS ADT: Insert (O(1)), Delete(O(1)), ListCount, DeleteList, Find nth, Get(O(1))
+
+Q: How to find Nth Node from Last/End in Linked List.
+
+-           M-n- 1th element from start (Efficient)
+
+-          2 pointer approach: Start temp till n-1, then start p and move until temp is null; p is our node(nth) from end.
+
+Q: How to find Middle of a Linked List.
+
+-          Slow and Fast pointer method: start slow as Head.next and Fast as Head.next.next until fast is null.
+
+Q: how to check if  a Linked List is palindrome.
+
+-          Reverse the list and compare the two if same.(not so efficient)
+
+-          Find middle of List, and traverse the list till middle and keep adding elements in Stack. After middle, start comparing the elements with Stack.pop() if same return true.
+
+Q: Display Linked List from end:
+
+-          Use stack.
+
+-          Recursion
+
+Print() {
+
+If(head==null)
+
+Return;
+
+Print(head.next);
+
+}
+
+ 
+
+Q: Merge 2 linked lists.
+
+ 
+
+Q: Implement Singly Linked List.
+
+Q: Implement Circular Linked List.
+
+ 
+
+Q: Reverse Linked List in pairs (swap adjacent nodes).
+
+-          Temp=head.next
+
+Head.next=temp.next
+
+Temp.next=head
+
+Head=temp
+
+ 
+
+Head.next.next=Reverse(head.next.next)
+
+Q:
+
+ 
+
+Arrays
+
+Q: Sorting
+
+-          Insertion Sort: Insert element in sorted array at correct position
+
+-          Selection Sort: Select the smallest and push to end/front
+
+-          Bubble: compare with all element using 2 loops.
+
+-          Quick sort: Pivot element, recursion, Divide and Conquer.
+
+-          Heap(minheap, Max Heap) sort, Heaps(tree)
+
+Q: How to find duplicate number in an array
+
+-          Hash Table
+
+-          Negate the Array elements using element as Index
+
+Q: How to find an element in an Array which occurs max number of times.
+
+-          Hash Table
+
+-          Replace elements using index by adding n
+
+for( int i=0, i<A.length(); i++)
+
+A[A[i]% n] +=n;
+
+For(int i=0;i<A.length();i++) {
+
+If(A[i]/n>max)
+
+max=A[i]/n;
+
+maxIndex=i;
+
+Q: How to find the missing number in sequence. [XOR]
+
+Q: How to find the element occurring odd number of times. [XOR]
+
+Q: How to find two repeating element in an array.
+
+Q: How to find 2 elements in an Array whose sum is S.
+
+-          Use HashMap, put S-A[i] in Map, and check id it already exists.
+
+Q: How to find two elements whose sum is closest to zero.
+
+-          Sort and run 2 pointers from left and right.
+
+Q: How to find 3 element who sum is S.
+
+Q: How to find pivot of a sequence which is increasing and decreasing.
+
+Q: How to find Majority element in an Array. (Majority element occurs n/2 times)
+
+Q: Find Local minimum in array,.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Backtracking
+
+Q: Generate Binary Strings
+
+Q: Generate K-array strings
+
+Trees
+
+Q: Binary Search Tree: properties
+
+Q: Vertical Sum of a Binary Tree
+
+-          Calculate Horizontal distance from root to all nodes, Put the distance of nodes into HashMap, and calculate sum of nodes with same index value.
+
+Q: How to find maximum width of a Binary Tree.
+
+-          Level Order Traversal, Queue all nodes in one level and check max nodes.
+
+Q: Different between BST and Heap
+
+Q: How to test is given tree is BST/Heap or not:
+
+ 
+
+ 
+
+ 
+
+Strings:
+
+Q: Get all permutations of a String
+
+Q: How to validate if given IP address is valid.
+
+Q: How to remove characters to make a String palindrome.
+
+Q: Given 2 Strings, how many removals needed so both are same.
+
+Q: How to check if given 2 Strings anagrams of each other.
+
+Q: How to find longest palindrome in a String.
+
+-          Check for L=2, and then for L>2
+
+Q: How to check if the given anagram could be a palindrome.     
+
+Java:
+
+Program storage in Memory:
+
+Command Line argument
+
+Stack
+
+Heap
+
+Uninitialized data
+
+Initialized data
+
+Text segment
+
+Thread synchronization techniques: to ensure two or more concurrent processes or threads do not simultaneously execute same program:
+
+Interface can have class inside
+an abstract class can have a constructor in Java. You can either explicitly provide a constructor to abstract class or 
+if you don't, the compiler will add default constructor of no argument in abstract class. --for contructor chaining
+
+ 
+
+

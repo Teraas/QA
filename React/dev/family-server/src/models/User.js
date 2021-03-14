@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -13,23 +13,23 @@ const userSchema = new mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: true
+        required: false
     },
-    surName: {
+    familyName: {
         type: String,
-        required: true
+        required: false
     },
     mobile: {
         type: String,
-        required: true
+        required: false
     },
     motherName: {
         type: String,
-        required: true
+        required: false
     },
     fatherName: {
         type: String,
-        required: true
+        required: false
     }
 });
 
@@ -66,7 +66,7 @@ userSchema.methods.comparePassword = function(userPassword) {
             if (!isMatch) {
                 return reject(false);
             }
-
+            resolve(true);
         });
 
     });

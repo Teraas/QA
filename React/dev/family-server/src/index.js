@@ -3,13 +3,15 @@ const express = require('express')
 const mongoose = require('mongoose');
 const app = express();
 const authRoutes = require('./routes/authRoutes')
+const userDataRoutes = require('./routes/userDataRoutes')
 const bodyParser = require('body-parser');
 const requireAuthorization = require('./middleware/requireAuthorization');
+var cors = require('cors');
 
 app.use(bodyParser.json());
-// app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 app.use(authRoutes);
+app.use(userDataRoutes);
 
 const mongoUri = 'mongodb+srv://admin:Pj0Z3Vcw3uSBooGF@cluster0.snkhw.mongodb.net/<dbname>?retryWrites=true&w=majority'
 mongoose.connect(mongoUri, {

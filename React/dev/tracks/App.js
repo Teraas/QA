@@ -6,10 +6,10 @@ import {createBottomTabNavigator} from 'react-navigation-tabs'
 import { createAppContainer, createSwitchNavigator} from 'react-navigation'
 import SigninScreen from './src/screens/SigninScreen'
 import SignupScreen from './src/screens/SignupScreen'
-import TrackCreateScreen from './src/screens/TrackCreateScreen'
-import TrackDetailsScreen from './src/screens/TrackDetailsScreen'
-import TrackListScreen from './src/screens/TrackListScreen'
-import AccountScreen from './src/screens/AccountScreen';
+import HomeScreen from './src/screens/HomeScreen'
+import FamilyTreeScreen from './src/screens/FamilyTreeScreen'
+import UserProfileScreen from './src/screens/UserProfileScreen'
+import FamilyHistoryScreen from './src/screens/FamilyHistoryScreen';
 import ResolveAuth from './src/screens/ResolveAuth';
 import {Provider as AuthProvider} from './src/context/AuthContext'
 import {setMavigator, setNavigator} from './src/navigationRef'
@@ -20,12 +20,10 @@ const switchNavigator = createSwitchNavigator({
     Signin: SigninScreen
   }),
   mainFlow: createBottomTabNavigator({
-    TrackCreate: TrackCreateScreen,
-    trackListFlow: createStackNavigator({
-      TrackList: TrackListScreen,
-      TrackDetail: TrackDetailsScreen
-    }),
-    Account: AccountScreen,
+    Home: HomeScreen,
+    FamilyTree: FamilyTreeScreen,
+    Profile: UserProfileScreen,
+    //History: FamilyHistoryScreen,
   })
 
 });

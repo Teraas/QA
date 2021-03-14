@@ -17,3 +17,5 @@ CREATE TABLE IF NOT EXISTS users.`userTable` (
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
+
+Select st.StudentID, Ex.Result from student st, Exam as Ex where st.studentID = Ex. StudentID;

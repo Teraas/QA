@@ -1,5 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.by import By 
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC
 
 class Utility:
     def __init__(self,driver):
@@ -17,5 +20,8 @@ class Utility:
         element.send_keys(text)
     def wait(self,time):
         self.driver.implicitly_wait(time)
+    def waitUntilElementById(self,ele):
+        WebDriverWait(self.driver, 10).until(
+        EC.presence_of_element_located((By.ID, ele)))
     def ClickUsingJavaScript(self,element):
         self.driver.execute_script("arguments[0].click();",element)

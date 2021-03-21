@@ -3,19 +3,22 @@ import time
 from selenium import webdriver
 import unittest
 from PageObjects import *
+from Utilities import Driver
 
+URL = "http://automationpractice.com/"
+QueryText = "Printed"
 class Test(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome('./chromedriver')
+        self.driver = Driver.getDriver("Chrome")
         # name the tests beginning with "test" prefix, for unittest to identify any test
     def test_order_creation():
-        HomePage.Navigate("http://automationpractice.com/")
+        HomePage.Navigate(URL)
         HomePage.MaximizeBrowser()
-        HomePage.DoAGlobalSearch("Printed")
-        HomePage.wait(10)
 
         SignIn.signIn(self.driver)
 
+        HomePage.Search(QueryText)  
+        HomePage.wait(10)
         
     def tearDown(self):
         self.driver.close()

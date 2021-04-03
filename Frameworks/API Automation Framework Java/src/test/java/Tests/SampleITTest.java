@@ -1,16 +1,12 @@
 package Tests;
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
-import static org.hamcrest.Matchers.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.specification.*;
 import org.junit.*;
-import static org.junit.Assert.assertTrue;
+
 import Utilities.Util;
 import DomainObjects.*;
 

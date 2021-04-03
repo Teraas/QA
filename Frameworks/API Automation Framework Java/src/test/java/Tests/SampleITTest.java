@@ -37,7 +37,8 @@ public class SampleITTest {
 				when().
 				post("/api/v1/test/").
 				then().
-				assertThat().equals("A response object");
+				assertThat().
+				statusCode(200);
 	}
 
 	@Test

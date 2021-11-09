@@ -1,0 +1,14 @@
+#https://workat.tech/project-ideas/article/awesome-project-ideas-software-developers-resume-c8yb6s706bxq
+- URL shortner
+- Url Encoder/Decoder
+- JSON parser
+- RSS reader
+- Develop using public data - https://workat.tech/project-ideas/article/developer-profile-4razgyhfeowq
+- Rating and review application - IMDB, Glassdoor, Practo, Zomato, Tripadvisor
+- Chat app
+- Social media 
+- QnA platform
+- E-commerce
+- Fantasy sports like dream11
+- Dating app
+- 

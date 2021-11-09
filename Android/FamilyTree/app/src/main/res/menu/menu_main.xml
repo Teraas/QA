@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_Logout"
+        android:title="@string/logout" />
+    <item
+        android:id="@+id/main_Profile"
+        android:icon="@drawable/common_google_signin_btn_icon_dark"
+        android:title="Profile"
+        app:showAsAction="withText"></item>
+</menu>

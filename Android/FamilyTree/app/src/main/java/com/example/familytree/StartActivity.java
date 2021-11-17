@@ -11,6 +11,7 @@ public class StartActivity extends AppCompatActivity {
 
     private Button mRegBtn;
     private Button mLoginBtn;
+    private Button mGraphBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,18 @@ public class StartActivity extends AppCompatActivity {
                 Intent loginIntent = new Intent(StartActivity.this, LoginActivity.class);
                 loginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(loginIntent);
+                finish();
+
+            }
+        });
+
+        mGraphBtn = (Button) findViewById(R.id.start_Graph);
+        mGraphBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent graphIntent = new Intent(StartActivity.this, GraphActivity.class);
+                graphIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(graphIntent);
                 finish();
 
             }

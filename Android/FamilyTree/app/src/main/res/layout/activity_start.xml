@@ -33,4 +33,13 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="16dp"
         android:text="Already an account" />
+    <Button
+        android:id="@+id/start_Graph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_registerButton"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="16dp"
+        android:text="Go to Graphs" />
 </RelativeLayout>

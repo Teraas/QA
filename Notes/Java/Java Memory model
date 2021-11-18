@@ -1,0 +1,15 @@
+	1. Latency would increase when process use of Memory dows down the level to RAM. Cpu ->registers -> local cache -> L2 -> RAM
+	2. Volatile keyword - when a variable value is not available in shared cache (shared between all cpu cores) in its current state, a reader thread could end up taking old state. If variable is volatile, its values are flushed in local cache and shared cache at the saem time.
+	3. Effectively, a variable declared volatile must have its data synchronized across all threads, so that whenever you access or update the variable in any thread, all other threads immediately see the same value. Typically, threads are allowed to have their own copy of data, which is for better efficiency.
+	4. Synchronized keyword - its applicate for code bloack and methods. While volatile is only for fields.
+		a. First, synchronized obtains and releases locks on monitors, which can force only one thread at a time to execute a code block. But synchronized also synchronizes memory. In fact, synchronized synchronizes the whole of the thread memory with "main" memory. 
+		b. So, where volatile only synchronizes the value of one variable between the thread memory and the "main" memory, synchronized synchronizes the value of all variables between the thread memory and the "main" memory and locks and releases a monitor to control the ownership between multiple threads.
+	5. Variable can be synchronized with lock operation also. Synchronized does have lock, though implicitly. Lock as they are explicit, give much more features.
+		a. Lock lock = new Reentrantlock();
+		b. Lock.lock(); update values; lock.unlock();
+		c. Lock.lock(); access values; lock.unlock();
+		d. Lock.lock(); try { //aacess vars} finally { lock.unlock(); } 
+		e. Lock.tryLock( optional timeout) to check if lock is acquired, then proceed with next steps. It could be unfair, to which threads gets the lock first. 
+	6. Alternate to synchronized block is AtomicInteger. Without putting code block in synchronized, we can just use atomicInteger.increment(). It handles the memory sync between threads.
+	7. So for boolean we use volatile, and for integer operations we can use AtomicNumbers.
+		

@@ -1,0 +1,11 @@
+Ping 1.1.1.1;ls
+Ping 1.1.1.1;cat /etc/password
+
+If sending username in login page like -- jsmith' OR 1==1 --, to bypass auth. As user could be searched in db in server like -- select * from userTable where username=jsmith' OR 1==1 --
+
+Use input validation
+Use contexual escaping
+Use LDAP
+Avoid OS commands call directly, rather use APIs
+Use prepared statements for SQL, as it auto checks
+

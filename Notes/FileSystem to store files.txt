@@ -1,0 +1,10 @@
+import fs
+import fs.copy
+mem_fs = fs.open_fs('mem://')
+mem_fs.makedirs('fruit')
+mem_fs.makedirs('vegetables')
+with mem_fs.open('fruit/apple.txt', 'w') as apple:
+    apple.write('braeburn')
+# write to the CWD for testing...
+with fs.open_fs(".") as os_fs:  # use a custom path if you want, i.e. osfs://<base_path>
+    fs.copy.copy_fs(mem_fs, os_fs)

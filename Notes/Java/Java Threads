@@ -1,0 +1,31 @@
+	1. Java.lang.Thread
+	2. Thread lifefcycle - New - >Runnable - >Running -> Terminated
+	3. To handle concurrent threads, use BlockingQueue collection.
+	4. Points to consider before increasing ThreadPool size
+		a. Are tasks CPU intensive? If yes, it not a good idea to have multiple threads. Keep thread count same as CPU cores
+		b. If tasks are IO intensive, you can increase threat count. 
+		c. If any other application running on CPU. Or Other tasks are using JVM, its good to not increase threads
+		d. Too many threads create overhead on cpu due to contaxt switching. It would clean L1/L2 for every switch.
+	5. ExecutorService - Java's threadpool framework
+		a. We can different thread pool types. Fixed Thread Pool, CachedThreadPool, ScheduledThreadPool, SingleThreadedExecutor.
+		b.  Fixed Thread Pool - Service would put the tasks in BlockingQueue which is thread safe.
+		c. Pool size could be decided based on #cores and task type.
+		d. ExecutorService service = Executors.newFixedThreadPool(threadCount); service.execute(new Task()); // Task implements Runnable interface.
+		e. Too many threads will consume more memory and extra overhead due to Context Switching.
+		f. CachedThreadPool - It can have many threads. It will keep creating threads. If it find any thread idle for 60 secs, it will kill it. Uses Synchronous Queue.
+		g. ScheduledThreadPool - It used Delay queue, will not maintain older of execution. It will prioritze with delays.  It is used when tasks are based on a schedule and delay times.
+		h. SingleThreadedExecutor - Only one thread in pool. Thread gets recreated if it gets killed somehow. Can be useful when tasks are to be run sequentially.
+	6. Java achieved concurrency with Threads. Its different from Parallelism.
+	7. JOINs - 
+		• The method wait() and join() both are used to pause the current thread in Java.
+		• Both wait() and join() can be interrupted by calling interrupt() method in Java.
+		• Both wait() and join() are a non-static method.
+		• Both wait() and join() are overloaded in Java. wait() and join() which without timeout as well as accepts a timeout parameter.
+		• The wait() is used for inter-thread communication while the join() is used for adding sequencing between multiple threads, one thread starts execution after first thread execution finished.
+		• One most important difference between wait() and join() that is wait() must be called from synchronized context i.e. synchronized block or method otherwise it will throw IllegalMonitorStateException but On the other hand, we can call join() method with and without synchronized context in Java.
+		• Waiting thread will receive notify() call from a thread to resume process.
+		
+	8. Priorities in Thread - 
+		a. Default priority. Norm_priority - 5
+		b. Low priority - 1
+		c. High Priority - 10

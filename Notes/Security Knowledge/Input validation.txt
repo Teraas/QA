@@ -1,0 +1,15 @@
+Types of validation - 
+Syntactical and semantic(endDate to be after startDate)
+
+Black list and White list
+
+Client side and server side
+Use frameworks to do input validation
+
+Implement validations:
+	- data type validators
+	- Schema validation of JSON or XML
+	- Type conversion check
+	- Max/min range check
+	- regEx or allowed values List
+	

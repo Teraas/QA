@@ -1,0 +1,8 @@
+Set src tag with attacker url to make user send cookies or browser session info
+
+Web/Java/C# has risk of CSRF
+
+Set SameSIte=Lax for cookies
+Use CSRF token for each request
+
+Keep-alive with STRICT for cookies

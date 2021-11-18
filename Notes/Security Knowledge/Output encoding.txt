@@ -1,0 +1,4 @@
+Replacing code brackets with other chars( > to ';&')
+Use standard encoding for character encoding when enchanging info
+Encoding reduces the risk of XSS, Command, XML attacks
+Use frameworks for encoding

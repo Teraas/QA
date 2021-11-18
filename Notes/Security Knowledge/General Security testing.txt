@@ -1,0 +1,63 @@
+Security Testing
+#avoid exposing unessesary info in error msgs or stack trace/logs
+#keep red private and separate from code
+# sanitize data from request to avoid XSS(cross-site script)
+# validate inputs from request
+Cross-Site Request Forgery
+-trick user into making request to your server
+- Use img tag to make user load image and call url
+- <img src=“url”>
+- Use post for write not GET
+- Use form token to avoid multiple loads in 1 session
+
+SQL injection
+- User statements like 1=1 
+URL manipulation
+- Change ids/sessionids/userid in a url to get sensitive information
+Fake requests
+- Using custom http headers
+- Do not rely in client side validations
+Cookie theft
+- Document.cookie
+- Avoid sensitive data in cookies
+- Use https cookies and expiration date for cookies
+- Encrypt the cookies
+
+
+Security Journey:
+ - Security is about People, Tools, Process
+- End users are weakest link in security
+- Strong hash of passwords should be stored in disks
+- Password length,
+
+Managing Resources for security
+ - Make Resource management decision , prioritise security
+- Security Behaviors and Activities(Threat modelling, Security code reviews, Education) of a Developer
+- Security Behaviors and Activities(Pen/Vulnerability/Fuzz testing) of a tester
+- Security Behaviors and Activities (planning resources, security) of a Manager
+
+Secure Development Lifecycle - Requirements, Design. Develop, Test, Release
+Protection of Data:
+ - PII/ PHI - what/Why/What use/With whom shared/ How to secure
+
+Yelow Belt:
+ XSS 
+	- https://www.google.com/about/appsecurity/learning/xss/
+	- XSS script returned as response from server in browser without sanitising the request.
+	- XSS script is executed by server in browser without sanitising the request, using eval or other methods.
+	- <script>alert(“test”);</script>
+	- DOM Based, Stored XSS and Reflected(on browser) XSS are popular exploits .
+	- DOM Based example - http://www.some.site/page.html?default=<script>alert(document.cookie)</script>
+
+
+Embrace Secuity from beginning, Create Secure designs, Develop Secure applications
+Git rid of default and hardcoded credentials
+Use Thread modelling - removes flawed logics in initial stages
+Get and apply knowledge of security 
+
+#Security Design principles
+Application Defence in Depth - Network(Firewall), Runtime(RASP), Application(Hardened conatainer), Build(Dependency check), Response(PSIRT)
+Minimize Attack Surface - (ex - removing support for unwanted protocols like smtp, ftp)
+Security by obscurity(of logics/algorithms)
+Implement usable security - so interaction with user is smooth 
+

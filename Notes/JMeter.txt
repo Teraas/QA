@@ -1,0 +1,54 @@
+JMeter VMs set up 
+
+ 
+
+Create 6 VMs in Staging subscription 
+
+Use Ubuntu server 18 - 8GB size. 
+
+Use single ssh Key for all, and save the key in .ssh folder. 
+ssh -i ~/.ssh/harish.pem azureuser@IP
+
+
+sudo apt-get update 
+
+sudo apt install openjdk-8-jre-headless 
+
+wget https://mirrors.estointernet.in/apache//jmeter/binaries/apache-jmeter-5.4.1.tgz 
+
+tar -xvf apache-jmeter-5.4.1.tgz 
+
+cd apache-jmeter-5.4.1/lib/ext/ 
+
+wget https://github.com/xmeter-net/mqtt-jmeter/releases/download/v2.0.2/mqtt-xmeter-2.0.2-jar-with-dependencies.jar 
+
+Worker node 
+
+./apache-jmeter-5.4.1/bin/jmeter-server -Jserver.rmi.ssl.disable=true 
+
+ 
+ 
+
+Controller node - 
+
+./jmeter -Jserver.rmi.ssl.disable=true -n -t test_100k_large3_1000devices_15HPM_30min_gap.jmx -r 
+
+./jmeter -Jserver.rmi.ssl.disable=true -n -t test_100k_large3_1000devices_15HPM_30min_gap.jmx -R IP
+
+
+
+sed -i 's/"-Xms1g -Xmx1g -XX:MaxMetaspaceSize=256m"/"-Xms1g -Xmx30g -XX:MaxMetaspaceSize=256m"/g' apache-jmeter-5.4.1/bin/jmeter 
+
+
+if [ -z "$TMUX" ] && [ ${UID} != 0 ] 
+
+then 
+
+    tmux new-session -A -s main 
+
+fi 
+
+ 
+ 
+
+Kill pid on port - $fuser -k 1099/tcp 

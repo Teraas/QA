@@ -28,3 +28,97 @@ git checkout --theirs my/file
 git show feature-1
 git tag -a feature-1 -m "test data"
 git push origin feature/ACS-118-jest-create-test-data feature-1
+
+
+
+
+
+
+
+
+
+
+
+Git commands
+# 3 stages of tree on git - working, staging, remote
+Git diff —staged (diff between staging and remote)
+Git diff (diff b/w working and staging)
+Git reset HEAD file (to upstage the file)
+
+Git diff commit1..HEAD —colour-words
+Git show commit1
+
+Undo Working tree changes
+ - git checkout — filename   (it checks out the file from master)
+
+Unstage files - git reset HEAD filename
+
+Amend Commit
+ - git add filename
+ - git commit —amend -m “amend the last commit”
+
+Remove untracked files
+  - git clean -i/n/f
+
+Ignore files:
+ - .gitignore
+ - access.log \nlog*.txt
+ - git config —global ./gitignore
+ - !assets/
+
+Remove staged file
+ - git rm —cached filename
+
+Git ls-tree HEAD
+
+Git log —since=2018-01-01
+Git log —graph —all —online —decorate
+Cat  .git/HEAD
+Cat .git/config
+
+
+Branches
+  - git branch [name] <- it create a branch locally
+ - git checkout [name] <- switches to branch
+ - git checkout -b [name] <- create and switches to branch
+ - git checkout -b [name] origin/[name]<- creates, switches to branch, tracks remote branch
+ - Git diff master..feature1 <- diff b/w branches
+ - git branch -d banchname <- delete branch
+ - reset moves the HEAD to earlier comments
+ - mixed reset also changes staged changes, hard changes WD as well as staged changes
+ - git reset —soft HEAD^^      goes 2 level down, the changes would be in staging
+ - git branch -r
+ - git fetch (will sync origin/master with remote)
+ - git merge origin/master (will merged the fetched(from remote) changes to master). — git fetch + git merge
+
+Track remote:
+ - git branch name origin/name
+Merges:
+Git merge branch name.  — git can decide if fast-fwd needed or now. Check commit log tree
+Merge conflicts:
+With commits on same file, merge manually and ‘git commit’
+Git help merge tool
+
+Merge fetched changes:
+
+Git stash-
+Git stash save “msg”
+Git stash show -p stash{1}
+Git stash pop stash{}
+Git stash apply stash{0}
+Apply does not delete from stash list
+Git stash drop stash@{}
+Git stash clear
+
+Alias:
+ Git config —Global alias.st “status”
+git config --global alias.logg 'log --graph --oneline --decorate'
+General Workflow
+- git fetch 
+- Git merge origin/master or origin/branch
+- Git merge branch name
+- Git push
+git fetch
+git rebase origin/master
+
+

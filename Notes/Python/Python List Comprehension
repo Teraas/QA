@@ -1,0 +1,33 @@
+	1. A shorter syntax when you want to create a new list based on the values of an existing list
+	2. print ([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a + b + c != n ])
+	3. Nested list - python students = [['Harry', 37.21], ['Berry', 37.21], ['Tina', 37.2], ['Akriti', 41], ['Harsh', 39]]
+		a. students.append([name, score])
+	4. newlist = [x for x in fruits if "a" in x]
+	5. newlist = [expression for item in iterable if condition == True]
+	6. newlist = [x if x != "banana" else "orange" for x in fruits] 
+	7. set={1,2,3}
+	8. dict={'a':1} 
+	9. tuple=()
+	10. tup to dict -- for a,b in tup tup.setDefault(a,[]).append(b) or dict(tup)
+	11. Set to list ---- list(set)
+	12. Q1:
+		for _ in range(int(input())):
+		        name = input()
+		        score = float(input())
+		        students.append([name, score])
+		    second_highest = sorted(list(set([marks for name, marks in students])))[1];
+		    second_highest_duplicates= sorted(list(set([marks for name, marks in students])));
+		    
+		    res = [name for name,marks in students if marks ==second_highest]
+		    res.sort()
+		    for n in res:
+		        print(n)
+	13. List average with 2 decimal points - print(round(sum(student_marks[query_name])/len(student_marks[query_name]), 2))
+		a. print('%.2f' % res)
+	14. Number to power n -- print(((10**i)//9)**2)
+		a. pow(a,b,m)
+	15. EVAL functions -
+		
+	
+	
+	

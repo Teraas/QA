@@ -1,0 +1,9 @@
+
+Threat modeling is an approach for analyzing the design of a feature, application, or product, and eliminating potential security flaws
+Its continuous process
+Don during Design phase to redesign and then start development
+Tools - IriusRisk, Microsoft TM tool
+
+Scope, Draw, Analyse, Mitigate, Document
+4 Questions - 'What are we building', 'What can go wrong', 'what are we going to do', did we do a good job'
+

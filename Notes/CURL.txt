@@ -1,0 +1,6 @@
+curl "http://localhost:8088/api/now/table/path/45aa007753260010990bddeeff7b122f" \
+--request PATCH \
+--header "Accept:application/json" \
+--header "Content-Type:application/json" \
+--data "{\"last_reported\": \"javascript:gs.info('injection');\"}" \
+--user 'admin':'admin'

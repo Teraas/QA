@@ -1,0 +1,16 @@
+	1. SOLID principles -
+		a. Single Responsibility Principle
+		b. Open/close - open for extension, close for modification
+		c. Liskov substitution principle - 
+		d. Interface segregation
+		
+	2. Test framework principles
+		a. Code reusability
+		b. Code maintainability
+		c. Object Repository
+		d. Readability
+		e. Don't Repeat Yourself
+		f. Keep Functions Small
+		g. Write Good Documentation
+		
+

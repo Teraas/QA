@@ -1,0 +1,5 @@
+	1. Sliding window patterns
+	2. Tree - breadth first 
+	3. Tree - depth first
+	4. 2 pointer approach
+    Fast and slow pointer approach

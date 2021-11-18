@@ -1,0 +1,54 @@
+	1. Add paramters for method - @Parameters(“browser”
+	2. Pass parameter from testng xml - <parameter name="browser" value="chrome">
+	3. Annotations - 
+	@BeforeTest
+	@AfterTest
+	@BeforeClass
+	@AfterClass
+	@BeforeMethod
+	@AfterMethod
+	@BeforeSuite
+	@AfterSuite
+	@BeforeGroups
+	@AfterGroups
+	@Test
+	4. It allows data driven testing using @DataProvider annotation
+		A. @DataProvider(name="getData")
+		public Object[][] getData(){
+		//Object [][] data = new Object [rowCount][colCount];
+		Object [][] data = new Object [2][2];
+		data [0][0] = "FirstUid";
+		data [0][1] = "FirstPWD";
+		data[1][0] = "SecondUid";
+		data[1][1] = "SecondPWD";
+		return data;
+		}
+		B. @Test (dataProvider="getData")
+		
+	5. Set priority for tests - @Test(priority=0)
+	6. group of test cases using TestNG - 
+		A. @Test (groups = { "smokeTest", "functionalTest" })
+		B. @Test (groups = { "functionalTest" })
+		C. <suite name="softwaretestingmaterial">
+		<test name="testngTest">
+		<groups>
+		<run>
+		<include name="smokeTest" />
+		</run>
+		</groups>
+		<classes>
+		<class name="softwareTestingMaterial.TestCase1" />
+		<class name="softwareTestingMaterial.TestCase2" />
+		</classes>
+		</test>
+		</suite>
+	7. Parallel execution in tstng
+		A. <suite name="softwaretestingmaterial" parallel="methods" thread-count="2">
+		<test name="testngTest">
+		<classes>
+		<class name="softwareTestingMaterial.ParallelTests" />
+		</classes>
+		</test> 
+		</suite>
+	8. Excluse test case group
+	9. Disable test case with @test(enabled=false)

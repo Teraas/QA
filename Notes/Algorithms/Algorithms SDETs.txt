@@ -1,0 +1,43 @@
+	1. Handling Windows pop up question 
+	2. Given a array of integers find triplets that equals a target sum
+	3. Find the occurrence of each character in a string
+	4. JWT tokens - base64 encoded - sharing (sharedReference for android SDK) and string for API auth
+	5. cloning a linked list
+	6. given a "/Users/name/Desctop/folder" string , print all they files and folder path in it
+	7. functional test cases of a text box
+	8. Exception Handling
+	9. Polymorphism
+	10. Car having an IOT device which returns car health to user on app. Write test cases
+	11. Greedy algorithms - 
+		a. Use optimal way to make minimum selections to reach target.
+		b. Make sure if greedy algorithm is correct choice for a problem, to avoid false result - as it does not reconsider its past choices. So dynamics algo is better approach, although slow
+		c. Activity Selection problem, Huffman coding, Job sequencing problem, Fractional Knapsack,  Prim's minimum spanning tree
+		d. *Activity Selection problem - N activities with start and finish times. Select max number of activities that can be performed by a person, person works on 1 at a time.
+			i. Sort the activities by the finish time
+			ii. Print first.
+			iii. From others, print the one which has start equal or greater than finish of prev
+	12. Convert int to String
+		a. "String s = String.valueOf(n)" , "String s = Integer.toString(n);" , "String s = "" + n;"
+	13. Find top repeated words in array of Strings - least space complexity. Use sorting by key with HashMap.
+	14. Data structure which supports both map operations and array operations without time complexity penalty. HashMap and BST - need indexing, as ArrayList wont give constant gets time
+	15. A DS to keep track of requests and keep only N entries. LinkedHashMap - it keep the insertion order. HashMap is without order so faster ops. HashSet is same as HashMap but without any duplicates.
+	16. Fast system with queries - Indexes to store the hotels by state, city and/or zipcode will help fast retrieval. Caching at request nodes will help serve repeated requests from same location. If load balancing is used, probably distributed caching or global caching helps.
+	17. for ip in $(cat $filename); do
+     echo -n "Memory usage of $process on machine with ip $ip is "
+     usage=$(ssh $ip "PSBLAH | grep $process | awk '{print $k}' 2>/dev/null )
+     echo "$usage"
+Done
+	18. Set<Map.Entry<String, Integer> > set = hs.entrySet(); for (Map.Entry<String, Integer> me : set)
+	
+	
+	Graph - > {V(), E(x,y…)}
+
+Graph representation - Adjacency matrix (as 2d metrix with VxV), Adjacency List - Array of LinkedList to store. Each array index will store a likedList which stores all the connected nodes to this index's node.
+
+Algorithms - Minimum Spanning Tree - Span all the vertices using Prims or Kruskals.
+	Prims - Select minimum edge first, then select minimum connected edge untill all vertexes are covered
+	Kruskals - Select mimimul first, keep selecting minimum, but make sure there is not loop created.
+	
+Shortest path - Greedy methods
+	Dijkstra - 
+

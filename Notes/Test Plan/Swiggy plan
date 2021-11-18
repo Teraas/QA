@@ -1,0 +1,60 @@
+Swiggy Test Plan:
+
+UI
+P1 flows, both Web and Mobile
+ - Seaach rest, select item for a rest-menu, then checkout/confirm the order. Chosee payment options and pay, Order confirmed order.
+	• Restaurant Search feature tests.:
+		○ Different search names(all possibility)
+		○ Auto-search
+		○ Localised. (Permission for location), manual selection of PIN codes. 
+			§ Location updates automatic
+		○ Result validation
+			§ Default search view/ custom search view. (Based on user preferences)
+			§ Popularity or rating 
+			§ Validation of each result
+				□ Pictures,names,descrption, address. If any thumbnails on it.(For both web/app).
+				□ List vie and expanded view.
+					® Multiple photos or their navigation. 
+					® Rating/reviews/comments.
+					® Menu of items
+		○ Menu-selection
+		○ Checkout and payment:
+			§ Price based on items and numbers.
+			§ Payments options:
+				□ Wallets/netbanking/credit/debit
+				□ If any surcharges.
+				□ Connection b/w service and payment portals are active.
+				□ Negative cases - if portal id outage.
+				□ Order cancel on payment failure or confirmation but msgs to where to pay. User pay before ordering.
+			§ Order tracking page:
+				□ Maps view
+				□ Delivery timeline and orders status.
+				□ Delivery person.
+				□ Live location
+				□ Time to reach.
+			§ Once delivery close/done. We get some order success msg. Notification.Push or msgs over phone.
+
+Backend
+APIs/endpoint
+Automation the validation for all the endpoints.
+ACL of all endpoints.
+200 status
+Input data of api and response. JSON/table/xml.
+GET/POST
+
+DBs
+Distributes/hosted. 
+
+Scale/load
+100m total
+10m daily
+1 m on current time. Concurrent sessions at search.
+Sustained load.
+
+
+
+Security:
+Releases have security focused release. Standard security practice or framework.
+Login - exploitation - brute force. Rate limiting or flow trigger. 
+- cross-site , sql injection attack. Scrpt injection attack. Script<>
+Endpoint/api - DoS shield. Outage. Create crunch of cpu/mememory. Rating limiting, watcher for latency.

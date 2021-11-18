@@ -1,0 +1,19 @@
+Cloud stacks
+Techs
+
+AWS ——————————————
+
+
+AMI - amazon machine images - linux/windows
+
+EC2, 
+DynamoDB - noSQL, 
+VPC (for networking) - subnets, security and IAM policies
+memecache, RDS - relational DB, 
+S3 - file storing service highly scalable, 
+Beanstock, 
+Load balancer
+CloudFront
+
+
+Make session on load-balancer sticky - to continue user session on same server

@@ -1,0 +1,4 @@
+	1. Serial GC - uses single thread and freeses all app threads.
+	2. Parallel GC - Use multiple threads, but still pauses all app threads
+	3. CMS
+	4. G1 - garbase first - it is ofr multi-processor systems. It will create partitions of heap, and will sweep only the empty partitions first. It is performance efficient

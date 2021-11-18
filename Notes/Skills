@@ -1,0 +1,65 @@
+Language -
+	Java 7/10
+	Python 6/10
+Frameworks
+	BDD - Python
+	BDD - Java
+	Page Objects - Python
+	Page Objetcs - Java
+	Data-Driven/Keyword-Driven
+	Hybrid - Java
+	API - Java
+	API - Python
+Improve test execution time?
+Improve test development/creation
+Reduce maintenance cost?
+OOP:7/10
+	Abstraction:
+	Encapsulation
+		Hide logic
+	Inheritance
+		Base classes, Drived class
+		Interfaces
+		Abstract class
+	Polymorphism: reuse code
+		Overriding
+		Overloading
+Design Patterns:
+	Factory design
+	Singleton:
+	
+Design Principles:
+
+DRY principle - don’t repeat yourself
+Backend automation
+Integration test plans - ?
+Test design reviewing: ?
+Testability:?
+Test coverage: ?
+Test scalability: ?
+Test health metrics"?
+Test traceability in automation: tagging with Story,Type(sanity, regression)
+
+Linux: 6/10
+Git 8/10
+Data Structures 7/10
+Databases: SQL and NoSQL
+
+Cloud - Azure/AWS
+
+QA Processes:
+	Agile
+	Planning - Tasks
+	Test Planning
+	Sign off
+	Go-no-go discussions
+		1. Story1
+		2. Story2
+	Improved any processes?
+		1. Story1
+
+Scale/Performance engineering
+Team mentoring
+Reportees
+Leadership
+Hiring involvement

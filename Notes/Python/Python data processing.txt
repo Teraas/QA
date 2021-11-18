@@ -1,0 +1,38 @@
+	1. Openpyxl - 
+	defUseOpenpyxl(file_name):
+    wb = openpyxl.load_workbook(file_name, read_only=True)
+    sheet = wb.active
+    rows = sheet.rows
+    first_row = [cell.value forcell innext(rows)]
+    data = []
+    forrow inrows:
+        record = {}
+        forkey, cell inzip(first_row, row):
+            ifcell.data_type == 's':
+                record[key] = cell.value.strip()
+            else:
+                record[key] = cell.value
+        data.append(record)
+    returndata
+	2. Use zip (key, value) to combile lists/tuples with same index to iterate 2 lists at the same time..
+	3. Create and initialise 1D array - arr = [0]*N
+	4. Create and initialise 2D array - arr = [[0]*cols]*rows
+		a. arr = [[0 for i in range(cols)] for j in range(rows)]
+		B. arr=[]
+		for i in range(rows):
+		    col = []
+		    for j in range(cols):
+		        col.append(0)
+		    arr.append(col)
+	5. Create dict - alphabetDict = dict()
+		A. forchar inalphabet:
+    alphabetDict[char] = 0
+		B. Get dict values - lMap.values():
+	6. To get character map/dict for string - Counter(str)
+	7. To get ascii for a char - ord("c")
+	8. To get char from ascii - chr(ascii)
+	9. List of chars to string - "".join(list)
+	10. Index values for strings - s[i]
+	11. String to list of chars - list(s)
+	
+	

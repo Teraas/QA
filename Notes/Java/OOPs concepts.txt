@@ -1,0 +1,45 @@
+OOPs is based on objects, rather than mere functions and procedure which is the case in SOPs. OOP provided more simplicity to design and implement any solution, from smallest of granularities. It resembles real world problems/solution like inheritance/encapsulation/polymorphism and avoids redundancy. We can solve any complex problem. Its bottom up approach.
+We can solve complex problems in simple way by reusability, with inheritance.
+We can hide data and logic with encapsulation.
+It allows polymorphism to give entities/objects any form.
+A class is a prototype/blueprint/template for entities/objects.
+
+	1. We can call the base class without instantiating it if it has static method; or if it is inherited by subclass.
+	2. Polymorphism - A single blueprint can have multiple definitions, when subclasses implement methods in their own way.
+		a. Static/compile time binding - Method overloading ( same name but different attributes)
+		b. Dynamic/run-time binding - method overriding 
+	3. Encapsulation - Binding data to a class and hiding from others. Uses access modifiers. 
+	4. Abstraction - hiding important data/info and implementation details.
+		a. Abstract class  -  Subclasses would implement the abstract methods' logic, base abstract class would not.
+			i. Can not be instantiated as it does not have implementation, so forbidden.
+			ii. Can have abstract and non-abstract methods both.
+			iii. Can have static, final and non-final variables.
+			iv. It CAN provide implementation.
+			v. EXTENDS
+		b. Abstract method / pure virtual functions - Subclasses would implement the method logic, base class should not.
+		c. Interface - They are not blueprints, only declare methods without implementations or instructions.
+			i. Can only have abstract methods.
+			ii. Variables are all final and static.
+			iii. IMPLEMETS
+			iv. We choose interface if subclasses have nothing in common, so don’t need non-abstract functions. As aware, abstract class provides non-abstract implementations as well.
+	5. Finalize as an object method used to free up unmanaged resources and cleanup before Garbage Collection(GC). It performs memory management tasks.
+	6. Final - A variable whose value does not change. It always refers to the same object by the property of non-transversity.
+	7. Exception - Conditions that an application might try to catch
+	8. Error - Errors are problems that should not be encountered by applications
+	9. Operator Overloading - "String str = "2" + 2;"
+	10. Polymorphic Parameters - same variable name, different type.
+	11. Coercion - implicit type conversion done by the compiler to prevent type errors. -- concatenation
+	12. Static variables
+		• A static variable acts like a global variable for all other data members of the class.
+		• A static variable can be accessed before any object of the class exists.
+		• A static variable can be accessed with the class name in which it is defined followed by the dot(.) operator.
+		
+	13. Static Methods
+		• A static method can only call other static methods only.
+		• A static method can access static data only.
+		• A static method can not be referred to “this” or “super” in any conditions.
+		• A static method can be accessed with the class name in which it is defined followed by the dot(.) operator.
+	14. Threads - 
+		a. Thread is class, we have to override run() method. All threads create a unique object to associate. Consumes more memory.
+		b. Runnable is an interface, we have to implement run() method. All threads share the same object.
+	

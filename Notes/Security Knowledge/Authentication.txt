@@ -1,0 +1,15 @@
+Different password types
+Password storage
+Crypto key - to decrypt stored data
+Defining digital Identity of person
+1-factor, 2-factor, multi-factor authentication
+
+
+
+
+Authorization and Access Control:
+
+DAC - discretionary
+MAC - mandatory
+RBAC - Role based
+ABAC - Attributes or policy based

@@ -1,0 +1,14 @@
+Difficult to analyse threat/breath if not having proper logging
+
+Where to store - Separate Partition if storing in fileSystem, or in Database, or SIEM to log together log info
+Logs should be enough to analyse what happened to application, validation errors, 
+
+Common Event Format - CEF - to have timestamps and enouph info about user, app, service, IP, page, action etc.
+
+Exclude the data from Logs - source code, tokens, session info, PII, passwords, DB info, keys/secrets, bank info, illegal info
+
+Archive the logs
+Log high value transactions
+Establish monitoring and alerting
+Use a standard format
+Log right stuff

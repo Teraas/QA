@@ -1,0 +1,81 @@
+Docker help 
+
+docker-compose -f services.yaml up 
+
+docker-compose -f services.yaml rm -svf 
+
+docker-compose up 
+
+docker-compose rm -svf 
+
+docker images -a 
+
+rm -f /var/lib/docker 
+
+docker container prune   # Remove all stopped containers 
+
+docker volume prune      # Remove all unused volumes 
+
+docker image prune       # Remove unused images 
+
+docker system prune      # All of the above, in this order: containers, volumes, images 
+
+ 
+ 
+
+docker system prune -a 
+
+docker rmi Image 
+
+docker images -q | xargs docker rmi 
+
+docker rm $( docker ps -q -f status=exited) 
+
+docker ps -a | grep Exited | awk '{print $1}' | xargs docker rm 
+
+ 
+ 
+
+docker-machine start dev 
+
+eval "$(docker-machine env dev)" 
+
+docker run  -it nowxiot/hub-deployment:1.0.9 
+
+docker pull nowxiot/hub-deployment:1.0.9 
+
+
+
+
+#Kubernetes commands
+
+Resource usage in pods for a namespace - kubectl top pod -n splunk-system 
+
+Resource usage in nodes  - kubectl top node 
+
+Resource allocation in nodes - kubectl describe node -A 
+
+ 
+ 
+
+Pod details - kubectl get pods -A -v 6 
+
+kubectl get pods  -n iot-hub 
+
+
+Extra pod details - kubectl get pods -o wide -n iot-hub 
+
+ 
+kubectl get pods --all-namespaces 
+
+Starting Kubernetes pods - kubectl scale deploy fci-solution --replicas=1 
+ 
+
+Stopping kubernetes pods - kubectl scale deploy fci-solution --replicas=0 
+ 
+
+Startting kube cluster 
+
+Creaitng namespace - kubectl create namespace sock-shop 
+
+Apply config to create services in cluster - kubectl apply -f complete-demo.yaml 

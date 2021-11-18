@@ -1,0 +1,110 @@
+https://devdojo.com/bobbyiliev/how-to-install-docker-and-docker-compose-on-raspberry-pi
+
+
+	1. Commands are read left to right
+	2. There are approximately 280 shell scripts that come with the UNIX operating system.
+	3. A file name that begins with a. (dot) is called as a hidden file - $ ls –a
+	• ls -a: list all files including hidden files. These are files that start with “.”.
+	• ls -A: list all files including hidden files except for “.” and “..” – these refer to the entries for the current directory, and for the parent directory.
+	• ls -R: list all files recursively, descending down the directory tree from the given path.
+	• ls -l: list the files in long format i.e. with an index number, owner name, group name, size, and permissions.
+	• ls – o: list the files in long format but without the group name.
+	• ls -g: list the files in long format but without the owner name.
+	• ls -i: list the files along with their index number.
+	• ls -s: list the files along with their size.
+	• ls -t: sort the list by time of modification, with the newest at the top.
+	• ls -S: sort the list by size, with the largest at the top.
+	• ls -r: reverse the sorting order.
+	
+	4. IFS stands for Internal Field Separator. And it is one of the system variables. By default, its value is space, tab, and a new line.
+	5. Remove dir - $ rmdir test1 
+	6. Create empty file - $ touch test
+	7. Copy content of 1 to 2 file - cat test1 > test2
+	8. Line by line diff - $ diff file1 file2
+	9. cmp – Basically it compares two files byte by byte and displays the very first mismatch.
+	10. Search in pwd - $ find . –name ‘*.t’ -print
+	11. Info about user - $ finger
+	12. Get current user - $ who
+	13. Search line for match - $ grep Hello file1
+	14. Count the lines with match - $ grep –c Hello file1
+	15. Print file - $ lp file1
+	16. Get manual of command - $ man ls
+	17. Count lines/words/character - $ wc file1
+	18. Compress the file - $ gzip file1
+	19. Uncompress - $ gunzip file1.gz
+	20. Commands history - $ history
+	21. Log name of user - $ logname
+	22. Info of OS - $ uname
+	23. Sort and display the content - $ sort file1
+	24. First lines - $ head -15 file1
+	25. Last lines - $ tail -15 file1
+	26. Run time of system - $ uptime
+	27. Current shell - echo $SHELL.
+	28. Unix Filter Commands
+	• grep: Find lines in stdin that match a pattern and print them to stdout.
+	• sort: Sort the lines in stdin, and print the result to stdout.
+	• uniq: Read from stdin and print unique (that are different from the adjacent line) to stdout.
+	• cat: Read lines from stdin (and more files), and concatenate them to stdout.
+	• more: Read lines from stdin, and provide a paginated view to stdout.
+	• cut: Cut specified byte, character or field from each line of stdin and print to stdout.
+	• paste: Read lines from stdin (and more files), and paste them together line-by-line to stdout.
+	• head: Read the first few lines from stdin (and more files) and print them to stdout.
+	• tail: Read the last few lines from stdin (and more files) and print them to stdout.
+	• wc: Read from stdin, and print the number of newlines, words, and bytes to stdout.
+	• tr: Translate or delete characters read from stdin and print to stdout
+	
+	29. Get all shells - $ cat /etc/shells
+	Read-only file can be opened by:
+	vi –R <File Name>
+	30. sed stands for stream editor. 
+		a. Syntax: sed options file
+		b. Sed 's/Hello/Hi' file1
+	31. awk is a data manipulation utility or command
+		$0 -> For whole line (e.g. Hello John)
+		$1 -> For the first field i.e. Hello
+		$2 -> For the second field
+		a. Awk '{print $0}'
+	32. The crontab file has six fields. The first five fields tell cron when to execute the command: minute(0-59), hour(0-23), day(1-31), month(1-12), and day of the week(0-6, Sunday = 0).And the sixth field contains the command to be executed.
+	33. Disk usage -
+		a. df – This command is used to check the free disk space.
+		b. du – This command is used to check the directory wise disk usage.
+		c. dfspace – This command is used to check the free disk space in terms of MB.
+		d. du -s /home/azureuser
+	
+	34. Shells - 
+		a. Bourne Shell (sh)
+		b. C Shell (csh)
+		c. Korn Shell (ksh)
+		d. Bourne Again Shell (bash)
+	35. GREP - 
+		a. Print lines with regex match - grep "ERROR" file.txt
+		b. Invert the results, print all except match - grep -v "ERRROR" file.txt
+		c. Print lines before the match - grep -A 5 "ERROR" file.txt
+		d. Print lines after the match - grep -B 5 "ERROR" file.txt
+		e. Print lines before and after the match - grep -C 5 "ERROR" file.txt
+	36. SED - sed 's/pattern/substitute/' file.txt
+	37. Awk - awk '(pattern){action}' file
+		a. Print columns of file, it has default delimiter as white space - awk '{print $1, $2}' log.txt
+		b. Print columns of file, with delimiter as comma - awk -F "," '{print $1, $2}' log.txt
+
+
+
+
+
+Troubleshootung:
+
+	1. Overall stats - top/htop
+	2. IOT stats - iostat
+		a. Iotstat -hym 1 4
+	3. Iotop
+		Iotop -o
+		
+	4. CPU details - lscpu
+	5. Vpmstat
+	6. Networks/ports details - netstat -tulpn
+	7. perf report -n -T --header
+	8. sudo perf record -a
+	9. run top -H and get PID of the thread with highest CPU.
+	
+		
+	

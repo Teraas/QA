@@ -1,0 +1,3 @@
+CVE - Common Vulnerabilities and Exposures
+CWE - Common Weakness Enumeration
+SDL - Security Development Lifcycle

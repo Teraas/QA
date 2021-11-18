@@ -1,0 +1,10 @@
+	1. __init__ is constructor.
+	2. Self parameter is actually to pass object reference to method.
+	3. Inheritance - class Drived(BaseClass):
+	4. Create class methods - @classmethod
+	5. @staticmethod - They don’t change. Use them without creating instance, like Java. Ex - Classnme.staticMethod()
+	6. Threading"
+		a. class myThread (threading.Thread):
+		b. Create run method. Use start method to start thread.
+	
+

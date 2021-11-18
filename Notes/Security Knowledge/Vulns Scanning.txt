@@ -1,0 +1,5 @@
+Done after Test phase, befre release
+Run on Application Server and OS/Platform
+Black box scanning
+Firewall protection, Port scan, OS detection, TCP/UDP service detection, assessment
+Tools - Qualys, OpenVAS, NMAP Project

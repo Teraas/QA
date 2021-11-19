@@ -1,0 +1,20 @@
+	1. The Sprint framework used Beans, which are the backbone of the Spring framework.
+	2. Beans are actually used as a config, to initialize objects by injecting Dependencies, which is done by IOC controllers. It helps the application manager classes/dependencies when they are in large numbers.
+
+Creating application / Rest services:
+	1. @RestController
+	2. @GetMapping("/path")
+	Public String greet(@RequestParam String name) { // logic}
+	3. Extract path variable using @PathVariable
+	@GetMapping("/user/{id}/name)
+	Public String greet(@PathVariable(value="id") int userId) {/sdsds}
+	4. Get request headers with @RequestHeader(value="Accept-language")
+
+
+Testing Spring boot application
+	1. @RunWith(SprintRunner.class)
+	2. @ContextConfiguration or @SpringBootTest
+	3. @AutoWired / @MockBean / @SpyBean to add dependency in test classes.
+	4. @Before to initialize dependencies.
+	5. @Test
+	6. AssertJ for validations.

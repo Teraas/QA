@@ -1,0 +1,23 @@
+Minimum spanning tree:
+ST is the tree that can connect all nodes using certain edges. Graph could have multiple STs.
+An MST is the ST that uses the least weight to connect all nodes.
+MST could be found using Prims algorithm or Kruskal’s Algorithm.
+
+# What is Prim's algo:
+Steps involved in Prim’s algorithms are mentioned below:
+
+Step 1: Choose any vertex as a starting vertex.
+Step 2: Pick an edge connecting any tree vertex and fringe vertex (adjacent vertex to visited vertex) having the minimum edge weight. 
+Step 3: Add the selected edge to MST only if it doesn't form any closed cycle.
+Step 4: Keep repeating steps 2 and 3 until the fringe vertices exist.
+Step 5: End
+
+# What is Kruskal algo:
+It uses Greedy approach. Kruskal's approach sorts all the edges in ascending order of edge weights and only adds nodes to the tree if the chosen edge does not form a cycle. 
+It also selects the edge with the lowest cost first and the edge with the highest cost last. 
+As a result, we can say that the Kruskal algorithm makes a locally optimum decision in the hopes of finding the global optimal solution.
+Step 1: Sort all edges in increasing order of their edge weights.
+Step 2: Pick the smallest edge.
+Step 3: Check if the new edge creates a cycle or loop in a spanning tree.
+Step 4: If it doesn’t form the cycle, then include that edge in MST. Otherwise, discard it.
+Step 5: Repeat from step 2 until it includes |V| - 1 edges in MST.

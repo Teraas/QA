@@ -1,0 +1,3 @@
+Array slicing:   Arrays.copyOfRange(myArray, startIndex, endIndex); -- Takes o(n) time and space.
+Common series - Sum of integers in Array.
+Recusion means extra space of call stack. -- Always remember

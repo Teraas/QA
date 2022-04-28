@@ -1,0 +1,3 @@
+A Java Servlet is a server-side component that runs on the web server and extends the capabilities of a server. 
+ A Java servlet can't be use interfaces classes like AWT or Swing.
+ Applets are embedded in another applications.

@@ -34,6 +34,7 @@ A class is a prototype/blueprint/template for entities/objects.
 		• A static variable can be accessed before any object of the class exists.
 		• A static variable can be accessed with the class name in which it is defined followed by the dot(.) operator.
 		
+		
 	13. Static Methods
 		• A static method can only call other static methods only.
 		• A static method can access static data only.
@@ -43,3 +44,10 @@ A class is a prototype/blueprint/template for entities/objects.
 		a. Thread is class, we have to override run() method. All threads create a unique object to associate. Consumes more memory.
 		b. Runnable is an interface, we have to implement run() method. All threads share the same object.
 	
+- If method is static in base class, runtime polymosphism does not happen
+- final class can not be subclassed, final method can not be overidden, final variable is assigned only once.
+- [abstract] abstract class can have constructor, but can not be instantiated.
+- [fields/variables] - Local variables in Java must be definitely assigned to before they are accessed, or it is a compile error.
+- Parameters are passed by value in Java
+# Exceptions:
+	- If both base and derived classes are caught as exceptions then catch block of derived class must appear before the base class.

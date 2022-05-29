@@ -1,8 +1,9 @@
 package com.famly;
 
-import com.famly.filters.JwtRequestFilter;
+import com.famly.SecurityFilters.JWTAuthorizationFilter;
 import com.famly.entity.AuthenticationRequest;
 import com.famly.entity.AuthenticationResponse;
+import com.famly.services.MyUserDetailsService;
 import com.famly.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -68,7 +69,7 @@ class AuthController {
 
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(authenticationRequest.getUsername());
-
+		System.out.println("authenticate endpoint ---- " + userDetails.toString());
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
@@ -102,7 +103,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService myUserDetailsService;
 	@Autowired
-	private JwtRequestFilter jwtRequestFilter;
+	private JWTAuthorizationFilter jwtRequestFilter;
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -120,6 +121,14 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 	// disable the Spring security if authenticate is called
+
+	/**
+	 * Refer to link for more details on authentication and authorization - https://anil-pace.medium.com/json-web-tokens-vs-oauth-2-0-85dd0b32057d
+	 * Service will use JWT for user authentication.
+	 * Auth/Auth2.0 could also be implemented to allow login with FB/Google
+	 * @param httpSecurity
+	 * @throws Exception
+	 */
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()

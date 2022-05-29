@@ -5,6 +5,9 @@ import com.famly.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * TODO - remove this test user class
+ */
 public class Users {
 
     private List<User> userList;

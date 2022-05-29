@@ -1,7 +1,6 @@
 package com.famly.services;
 
 import com.famly.entity.User;
-import com.famly.DAO.UserService;
 import com.famly.entity.UserRelation;
 import com.famly.repository.UserRelationRepository;
 import com.famly.repository.UserRepository;
@@ -9,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/UserService")
 public class UserController {
 
     @Autowired
@@ -26,13 +23,18 @@ public class UserController {
     @Autowired
     private UserRelationRepository userRelationRepository;
 
+    @RequestMapping({ "/hello" })
+    public String firstPage() {
+        return "Hello World, from users service";
+    }
+
     @GetMapping(path = "/getAllUsers", produces = "application/json")
     public List<User> getUsers() throws ExecutionException, InterruptedException {
         List<User> users = userRepository.findAll();
         System.out.println(users);
         return users;
     }
-    @GetMapping(path = "/{id}", produces = "application/json")
+    @GetMapping(path = "getUser/{id}", produces = "application/json")
     public User getUserDetails(@PathVariable(value = "id") Long id) throws ExecutionException, InterruptedException {
         User user = null;
         try{
@@ -95,7 +97,9 @@ public class UserController {
 
     @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
     public String registerUser(@RequestBody User user) throws ExecutionException, InterruptedException {
-
+        /** Using Google firestore.
+         * TODO - move to AWS RDS
+         */
         return userService.createUser(user);
     }
 

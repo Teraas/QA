@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface UserRelationRepository extends JpaRepository<UserRelation, Long> {
     // Use non-ID fields to fetch results
+    // If storinh only 1 record in case of Usrx & UserY, how to fetch relations for UserY.
     List<UserRelation> findByUserXid(Long userXid);
     List<UserRelation> findAll();
     //void deleteById(String userXid);

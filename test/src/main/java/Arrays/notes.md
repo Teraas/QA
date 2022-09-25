@@ -7,3 +7,5 @@ Arrays.copyOfRange(myArray, startIndex, endIndex);
 
 #Linked lists
 Ex - A word processor is definitely going to need fast appends—appending to the document is like the main thing you do with a word processor.
+
+# Sorted arrays would usually use Binary Search

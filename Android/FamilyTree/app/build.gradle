@@ -69,8 +69,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     //GraphView
     //implementation 'dev.bandb.graphview:graphview:0.8.1'
-    implementation 'de.blox:graphview:0.7.1'
+    //implementation 'de.blox:graphview:0.7.1'
     //zoomLayout
-    implementation 'com.otaliastudios:zoomlayout:1.8.0'
+    //implementation 'com.otaliastudios:zoomlayout:1.8.0'
+    implementation 'org.giwi:android-network-graph:0.0.1'
 
 }

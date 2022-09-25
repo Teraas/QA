@@ -11,6 +11,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 // Service using NoSQL db
+
+/**
+ * TODO - create and interface for it and implement the service
+ * To avoid implementation issues in future
+ */
 @Service
 public class UserService {
     public static final String COL_NAME="users";

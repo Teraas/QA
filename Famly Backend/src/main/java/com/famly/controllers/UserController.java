@@ -1,9 +1,10 @@
-package com.famly.services;
+package com.famly.controllers;
 
 import com.famly.entity.User;
 import com.famly.entity.UserRelation;
 import com.famly.repository.UserRelationRepository;
 import com.famly.repository.UserRepository;
+import com.famly.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

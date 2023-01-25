@@ -1,5 +1,9 @@
 package Math_Theorems;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 public class RandomNumbers {
 
 
@@ -49,6 +53,20 @@ public class RandomNumbers {
     }
     private static int rand5() {
         //write logic to generate number 1-5
-        return 1;
+        Random rn = new Random();
+        int answer = rn.nextInt(5) + 1;
+        return answer;
+    }
+    public static void main(String[] agrs){
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i=0;i<1000;i++){
+            int num = ((rand5() + rand5()) % 7) +1;
+            System.out.println(num);
+            if(map.containsKey(num))
+                map.put(num, map.get(num) + 1);
+            else
+                map.put(num, 1);
+        }
+        System.out.println("Final spread of ran5 for 100 itrs -> " + map.toString());
     }
 }

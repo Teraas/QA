@@ -78,6 +78,7 @@ class TestGraph {
             }
 
             //Set<String> legalColors = new HashSet<>();
+            // optimize by circuit break, stop when legal color is found
             for (String color : colors) {
                 if (!illegalColors.contains(color)) {
                     //legalColors.add(color);

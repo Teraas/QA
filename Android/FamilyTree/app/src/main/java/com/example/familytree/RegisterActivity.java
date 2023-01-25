@@ -53,7 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
         textEmail = (EditText) findViewById(R.id.reg_EmailAddress);
         textPassword = (EditText) findViewById(R.id.reg_TextPassword2);
         regButton = (Button) findViewById(R.id.reg_Button);
-        writer = new UserDataWriter(sharedpreferences);
+        writer = new UserDataWriter();
+        writer.sharedpreferences = sharedpreferences;
         progressDiaglog = new ProgressDialog(this);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar_Register);

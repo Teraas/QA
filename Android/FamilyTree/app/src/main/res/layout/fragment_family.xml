@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fragment_bg"
     tools:context=".FamilyFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/family_fragment_text1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/fragment_bg"-->
+<!--        android:text="@string/famly_fragment"-->
+<!--        android:textColor="@color/appBarLayout_bg"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="40dp"-->
+<!--        android:gravity="center" />-->
+    <ImageUtility.TouchImageView
+        android:id="@+id/imageGraphView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        tools:text="Family/Friends fragment" />
+        android:src="@drawable/graph1_1"
+        android:gravity="center"
+        tools:ignore="MissingClass" />
 
-</FrameLayout>
+</RelativeLayout>

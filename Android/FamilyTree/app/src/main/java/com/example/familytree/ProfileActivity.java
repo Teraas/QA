@@ -23,7 +23,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(mypreference,
                 Context.MODE_PRIVATE);
-        writer = new UserDataWriter(sharedpreferences);
+        writer = new UserDataWriter();
+        writer.sharedpreferences = sharedpreferences;
         String token="abc";
         if(sharedpreferences.contains("token")) {
             token = sharedpreferences.getString("token", "");

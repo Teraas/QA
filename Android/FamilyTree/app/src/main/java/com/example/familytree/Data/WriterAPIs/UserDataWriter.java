@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.familytree.Data.ReaderAPIs.auth.AuthToken;
 import com.example.familytree.LoginActivity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -35,12 +37,12 @@ import okhttp3.Response;
 
 public class UserDataWriter {
     String apiToken = "";
-    SharedPreferences sharedpreferences;
+    public static SharedPreferences sharedpreferences;
     public static final String mypreference = "famlyPref";
-    String URL = "http://192.168.1.7:3000/";
-    String responseBodyString;
-    public UserDataWriter( SharedPreferences sharedpreference) {
-        sharedpreferences = sharedpreference;
+    String URL = "http://192.168.1.7:8088/";
+    public static String responseBodyString;
+    public UserDataWriter( ) {
+
     }
     public void writeUserDetails(String path) throws JSONException, IOException {
         List<NameValuePair> paramsUser = new ArrayList<NameValuePair>();
@@ -59,25 +61,29 @@ public class UserDataWriter {
     }
     public String userSignin( String email, String password ) throws JSONException, IOException {
         List<NameValuePair> paramsUser = new ArrayList<NameValuePair>();
-        paramsUser.add(new BasicNameValuePair("email",email));
+        paramsUser.add(new BasicNameValuePair("username",email));
         paramsUser.add(new BasicNameValuePair("password",password));
 
         apiToken = "";
         //Log.d("Token Auth API1 ", postAPICall(URL + "signin", paramsUser).toString());
-        String res= postAPICall(URL + "signin", paramsUser);
+        postAPICall(URL + "authenticate", paramsUser);
+        String res= sharedpreferences.getString("APIResp","default");
+        Log.d("[ Token Auth API ]", res);
+        AuthToken authToken = new ObjectMapper().readValue(res, AuthToken.class);
         //System.out.println("my res"+ res);
-        //Log.d("Token Auth API1 ", res);
+
+        apiToken = authToken.getJwt();
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString("token", apiToken);
         editor.commit();
-        Log.d("Token Auth API ", apiToken);
+        Log.d("[ Token Auth API ]", apiToken);
         //Toast.makeText(UserDataWriter.this, "Authentication failed, please check the form and try again.").show();
         return apiToken;
     }
     /*
     TODO - Refactor it to have separate Network service for external calls
      */
-    private String postAPICall(String URI, List<NameValuePair> params) throws JSONException, IOException {
+    public void postAPICall(String URI, List<NameValuePair> params) throws JSONException, IOException {
         OkHttpClient client = new OkHttpClient();
         JSONObject jsonObject = new JSONObject();
         for (NameValuePair s:params
@@ -95,7 +101,7 @@ public class UserDataWriter {
                 .post(body)
                 .addHeader("content-type", "application/json")
                 .build();
-        Log.d("Harish Request ", jsonObject.toString());
+        Log.d("[ Famly Request ]", jsonObject.toString());
         Call call = client.newCall(request);
         Response[] response = new Response[1];
 
@@ -108,7 +114,7 @@ public class UserDataWriter {
                             //Log.d("Harish Thread ", "here");
                             response[0] = call.execute();
                             responseBodyString = response[0].body().string();
-                            //Log.d("Harish Response ", responseBodyString);
+                            Log.d("[ Famly Response ]", responseBodyString);
                             updateTokenInSharedRef(responseBodyString);
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -124,15 +130,16 @@ public class UserDataWriter {
             //Log.d("Harish Exception ", e.toString());
             e.printStackTrace();
         }
-        return responseBodyString;
+        //Log.d("[ Famly Response ]", responseBodyString);
+        //return responseBodyString;
     }
 
-    private void updateTokenInSharedRef(String res) throws JSONException {
-        JSONObject Jobject = new JSONObject(res);
+    public void updateTokenInSharedRef(String token)  {
+        //JSONObject Jobject = new JSONObject(res);
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        //Log.d("Harish Response2 ", Jobject.get("token").toString());
-        editor.putString("token", Jobject.get("token").toString());
+        Log.d("[ Auth Debug] ", "Updating token in pref " + token);
+        editor.putString("APIResp", token);
         editor.commit();
-        //Log.d("Harish Response3 ", sharedpreferences.getString("token", ""));
+        Log.d("[ Auth Debug] ", "Updated token in pref " + sharedpreferences.getString("APIResp","default"));
     }
 }

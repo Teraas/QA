@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#8FC124</color>
-    <color name="colorPrimaryVariant">#FF6200EE</color>
-    <color name="colorOnPrimary">#FF3700B3</color>
-    <color name="colorSecondary">#FF03DAC5</color>
-    <color name="colorSecondaryVariant">#FF018786</color>
-    <color name="colorOnSecondary">#FFFFFFFF</color>
+    <color name="colorPrimary">#06447d</color>
+    <color name="tabLayout_bg">#e4e9e9</color>
+    <color name="appBarLayout_bg">#06447d</color>
+    <color name="colorPrimaryVariant">#06447d</color>
+    <color name="colorOnPrimary">#e4e9e9</color>
+    <color name="colorSecondary">#06447d</color>
+    <color name="colorSecondaryVariant">#06447d</color>
+    <color name="colorOnSecondary">#e4e9e9</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="fragment_color">#06447d</color>
+    <color name="fragment_bg">#ebede8</color>
+    <color name="home_card_bg">#ebede8</color>
+    <color name="black">#000000</color>
+    <color name="black_separator">#10000F</color>
 </resources>

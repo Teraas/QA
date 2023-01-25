@@ -40,7 +40,7 @@ public class UserController {
         User user = null;
         try{
             user = userRepository.findById(id).get();
-            System.out.println(user);
+            System.out.println("[Monitoring] - [Debug] " + user);
         } catch(Exception e){
             System.out.println("[Monitoring] - [exception]" +e.getMessage());
             return null;
@@ -69,32 +69,6 @@ public class UserController {
         return userRelations;
     }
 
-    @GetMapping(path = "/getUserTree/{id}", produces = "application/json")
-    public Map<Long, List<?>> getUserTree(@PathVariable(value = "id") Long id) throws ExecutionException, InterruptedException {
-        int maxRelations = 500;
-        Queue<Long> queue = new LinkedList<>();
-        List<UserRelation> userRelations = userRelationRepository.findByUserXid(id);
-        System.out.println(userRelations);
-        /** get all relations recursively and store in a Graph.
-         *  Hit1 - get first neighbours, store them in a queque.
-         *  Store all neighbours of the listQueue
-         */
-        Map<Long, List<?>> relationGraphAdjList = new HashMap<>();
-        relationGraphAdjList.put(id, userRelations);
-        userRelations.forEach( relation -> queue.add(relation.getUserYid()));
-        maxRelations = maxRelations - userRelations.size();
-        while(!queue.isEmpty() && maxRelations>0){
-            Long relatedID = queue.remove();
-            maxRelations --;
-            userRelations = userRelationRepository.findByUserXid(relatedID);
-            relationGraphAdjList.put(relatedID,userRelations);
-            if(userRelations !=null && !userRelations.isEmpty()){
-                relationGraphAdjList.put(relatedID,userRelations);
-                userRelations.forEach( relation -> queue.add(relation.getUserYid()));
-            }
-        }
-        return relationGraphAdjList;
-    }
 
     @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
     public String registerUser(@RequestBody User user) throws ExecutionException, InterruptedException {

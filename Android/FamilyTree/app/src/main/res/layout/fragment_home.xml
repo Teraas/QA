@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AE2424"
+    android:background="@color/fragment_bg"
     tools:context=".HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:id="@+id/home_fragment_text1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@color/appBarLayout_bg"-->
+<!--        android:text="@string/home_fragment"-->
+<!--        android:textColor="@color/fragment_bg"-->
+<!--        tools:text="Home fragment"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:gravity="center"-->
+<!--        />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/posts_home"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="#730F5A"
-        android:text="@string/hello_blank_fragment"
-        tools:text="Home fragment" />
+        android:layout_height="match_parent"
+        android:background="@color/fragment_bg"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

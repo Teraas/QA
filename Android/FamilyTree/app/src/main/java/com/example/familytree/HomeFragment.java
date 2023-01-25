@@ -2,11 +2,22 @@ package com.example.familytree;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.familytree.adapters.AdapterPosts;
+import com.example.familytree.models.Post;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,50 +26,59 @@ import android.view.ViewGroup;
  */
 public class HomeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    TextView textView;
+    String myuid;
+    RecyclerView recyclerView;
+    List<Post> posts;
+    AdapterPosts adapterPosts;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment HomeFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static HomeFragment newInstance(String param1, String param2) {
-//        HomeFragment fragment = new HomeFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        //textView=view.findViewById(R.id.home_fragment_text1);
+        //String sTitle=getArguments().getString("title");
+        //textView.setText("Home Fragment");
+        recyclerView = view.findViewById(R.id.posts_home);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(layoutManager);
+        posts = new ArrayList<>();
+        loadPosts();
+        return view;
     }
+
+    private void loadPosts() {
+        Post post1 = new Post("Hi there! asdddsdfsdfsfdsfsdfsdfsdfdsfdsfdfdfsdfsdfsdfsdfsdfdfdccdscdscdc", "123","1672241740","22","","","harish@gmail.com","121232","","Harish Kumar","1");
+        Post post2 = new Post("Hi there! 2", "124","1672241940","11","","","harish@gmail.com","121232","","Harish Kumar","5");
+        Post post3 = new Post("Hi there! 2 dfdfdfsdsfdsfsdfsffsdfsdfsdfsdfsdfsdfdsfdfsdfsdfsdfsdfsdfsdfdsfsfs", "124","1672241940","10000","","","harish@gmail.com","121232","","Harish Kumar","5");
+        Post post4 = new Post("Hi there! 2", "124","1672241940","2","","","harish@gmail.com","121232","","Harish Kumar","5");
+        Post post5 = new Post("Hi there! 2dfdfdfsdsfdsfsdfsffsdfsdfsdfsdfsdfsdfdsfdfsdfsdfsdfsdfsdfsdfdsfsfsasdddsdfsdfsfdsfsdfsdfsdfdsfdsfdfdfsdfsdfsdfsdfsdfdfdccdscdscdc", "124","1672241940","123","","","harish@gmail.com","121232","","Kirti Swami","5");
+        Post post6 = new Post("Hi there! 22dfdfdfsdsfdsfsdfsffsdfsdfsdfsdfsdfsdfdsfdfsdfsdfsdfsdfsdfsdfdsfsfsasdddsdfsdfsfdsfsdfsdfsdfdsfdsfdfdfsdfsdfsdfsdfsdfdfdccdscdscdc2dfdfdfsdsfdsfsdfsffsdfsdfsdfsdfsdfsdfdsfdfsdfsdfsdfsdfsdfsdfdsfsfsasdddsdfsdfsfdsfsdfsdfsdfdsfdsfdfdfsdfsdfsdfsdfsdfdfdccdscdscdc", "124","1672241940","432","","","harish@gmail.com","121232","","Kirti Swami","5");
+
+        posts.add(post1);
+        posts.add(post2);
+        posts.add(post3);
+        posts.add(post4);
+        posts.add(post5);
+        posts.add(post6);
+        adapterPosts = new AdapterPosts(getActivity(), posts);
+        recyclerView.setAdapter(adapterPosts);
+    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        Bundle args = getArguments();
+//        textView=view.findViewById(R.id.home_fragment_text1);
+//        //String sTitle=getArguments().getString("title");
+//        textView.setText("Home Fragment");
+//    }
 }

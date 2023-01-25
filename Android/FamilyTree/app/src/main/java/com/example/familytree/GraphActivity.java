@@ -39,21 +39,53 @@ public class GraphActivity extends AppCompatActivity {
     private ScaleGestureDetector scaleGestureDetector;
     private float mScaleFactor = 1.0f;
     private ImageView imageView;
+    private float mx;
+    private float my;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_graph);
+        setContentView(R.layout.activity_graph);
 
         //imageView=findViewById(R.id.imageView);
         //imageView.setOnTouchListener(this);
-        TouchImageView img = new TouchImageView(this);
-        img.setImageResource(R.drawable.graph1);
-        img.setMaxZoom(4f);
+        TouchImageView img;
+        img = new TouchImageView(this);
+        //img = (ImageView) findViewById(R.id.imageView);
+        img.setImageResource(R.drawable.graph1_1);
+        img.setMaxZoom(10f);
         setContentView(img);
-        //scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
         // example tree
-
+//        img.setOnTouchListener(new View.OnTouchListener() {
+//
+//            public boolean onTouch(View arg0, MotionEvent event) {
+//
+//                float curX, curY;
+//
+//                switch (event.getAction()) {
+//
+//                    case MotionEvent.ACTION_DOWN:
+//                        mx = event.getX();
+//                        my = event.getY();
+//                        break;
+//                    case MotionEvent.ACTION_MOVE:
+//                        curX = event.getX();
+//                        curY = event.getY();
+//                        img.scrollBy((int) (mx - curX), (int) (my - curY));
+//                        mx = curX;
+//                        my = curY;
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//                        curX = event.getX();
+//                        curY = event.getY();
+//                        img.scrollBy((int) (mx - curX), (int) (my - curY));
+//                        break;
+//                }
+//
+//                return true;
+//            }
+//        });
     }
 
     @Override

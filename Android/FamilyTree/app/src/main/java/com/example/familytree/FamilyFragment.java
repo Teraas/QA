@@ -1,12 +1,19 @@
 package com.example.familytree;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import ImageUtility.TouchImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,12 +26,18 @@ public class FamilyFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView textView;
+    TouchImageView imageView;
+    Context ctx;
+    private ScaleGestureDetector scaleGestureDetector;
+    private float mScaleFactor = 1.0f;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public FamilyFragment() {
+    public FamilyFragment(Context context) {
+        this.ctx = context;
         // Required empty public constructor
     }
 
@@ -37,14 +50,14 @@ public class FamilyFragment extends Fragment {
      * @return A new instance of fragment FamilyFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FamilyFragment newInstance(String param1, String param2) {
-        FamilyFragment fragment = new FamilyFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static FamilyFragment newInstance(String param1, String param2) {
+//        FamilyFragment fragment = new FamilyFragment(this.ctx);
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +72,33 @@ public class FamilyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_family, container, false);
+        View view = inflater.inflate(R.layout.fragment_family, container, false);
+        //textView=view.findViewById(R.id.family_fragment_text1);
+        imageView = view.findViewById(R.id.imageGraphView);
+        imageView.setImageResource(R.drawable.graph1_1);
+        imageView.setMaxZoom(10f);
+        //setContentView(img);
+        scaleGestureDetector = new ScaleGestureDetector(ctx, new ScaleListener());
+        //String sTitle=getArguments().getString("title");
+        //textView.setText("Family Fragment");
+
+        return view;
+    }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        //Bundle args = getArguments();
+//        textView=view.findViewById(R.id.family_fragment_text1);
+//        //String sTitle=getArguments().getString("title");
+//        textView.setText("Family Fragment");
+//    }
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            mScaleFactor *= scaleGestureDetector.getScaleFactor();
+            mScaleFactor = Math.max(0.1f, Math.min(mScaleFactor, 10.0f));
+            imageView.setScaleX(mScaleFactor);
+            imageView.setScaleY(mScaleFactor);
+            return true;
+        }
     }
 }

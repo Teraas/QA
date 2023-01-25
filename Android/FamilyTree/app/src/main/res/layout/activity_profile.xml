@@ -23,7 +23,7 @@
         android:layout_alignTop="@id/profile_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="288dp"
-        android:text="harish Swami" />
+        android:text="Harish Swami" />
 
     <TextView
         android:id="@+id/profile_statusText"
@@ -41,14 +41,6 @@
         android:layout_below="@id/profile_statusText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Update Image" />
+        android:text="Edit Profile" />
 
-    <Button
-        android:id="@+id/profile_updateStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profile_updateImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="Update Status" />
 </RelativeLayout>

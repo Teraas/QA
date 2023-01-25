@@ -170,6 +170,8 @@ public class TouchImageView extends ImageView {
             int bmWidth = drawable.getIntrinsicWidth();
             int bmHeight = drawable.getIntrinsicHeight();
             Log.d("bmSize", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
+            Log.d("[ Image Size ] 1 - ", "bmWidth: " + bmWidth + " bmHeight : " + bmHeight);
+
             float scaleX = (float) viewWidth / (float) bmWidth;
             float scaleY = (float) viewHeight / (float) bmHeight;
             scale = Math.min(scaleX, scaleY);
@@ -182,8 +184,42 @@ public class TouchImageView extends ImageView {
             matrix.postTranslate(redundantXSpace, redundantYSpace);
             origWidth = viewWidth - 2 * redundantXSpace;
             origHeight = viewHeight - 2 * redundantYSpace;
+            Log.d("[ Image Size ] 1 - ", "origWidth: " + origWidth + " origHeight : " + origHeight);
+
             setImageMatrix(matrix);
         }
         fixTrans();
     }
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        try {
+//            Drawable drawable = getDrawable();
+//            if (drawable == null) {
+//                setMeasuredDimension(0, 0);
+//            } else {
+//                int measuredWidth = MeasureSpec.getSize(widthMeasureSpec);
+//                int measuredHeight = MeasureSpec.getSize(heightMeasureSpec);
+//                Log.d("[ Image Size ]", "Width - > " + measuredWidth);
+//                Log.d("[ Image Size ]", "Height - > " + measuredHeight);
+//                if (measuredHeight == 0 && measuredWidth == 0) { //Height and width set to wrap_content
+//                    setMeasuredDimension(measuredWidth, measuredHeight);
+//                } else if (measuredHeight == 0) { //Height set to wrap_content
+//                    int width = measuredWidth;
+//                    int height = width *  drawable.getIntrinsicHeight() / drawable.getIntrinsicWidth();
+//                    setMeasuredDimension(width, height);
+//                } else if (measuredWidth == 0){ //Width set to wrap_content
+//                    int height = measuredHeight;
+//                    int width = height * drawable.getIntrinsicWidth() / drawable.getIntrinsicHeight();
+//                    setMeasuredDimension(width, height);
+//                } else { //Width and height are explicitly set (either to match_parent or to exact value)
+//                    Log.d("[ Image Size ] 1 - ", "Width - > " + measuredWidth + " Height - > " + measuredHeight);
+//                    setMeasuredDimension(measuredWidth, measuredHeight);
+//                }
+//            }
+//        } catch (Exception e) {
+//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        }
+//        fixTrans();
+//    }
+
 }

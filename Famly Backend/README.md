@@ -13,7 +13,9 @@ User Search
 Add a relationship for the User.
 Create a post(Text/Photo/photos) - MVP to not have video.
 User count target - 10M
-
+User API Gateway to manager multiple services - KrakenD
+    Set rate limits
+    Set circuit-breaker, set response in case of errors more than 1 for services/endpoints
 Design Pillers - High Availability, Resiliency with fault tolerance and recovery, Reliability, Durability, Cost Optimization
 
 Servers to host the services - Cloud (AWS, Azure) + utilise Pi 4 if enough for MVP.

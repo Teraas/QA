@@ -1,6 +1,6 @@
 JMeter VMs set up 
 
- 
+ http://drewww.github.io/socket.io-benchmarking/
 
 Create 6 VMs in Staging subscription 
 

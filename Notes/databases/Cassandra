@@ -1,0 +1,17 @@
+# creating a table
+# example 1 -- single partition key
+CREATE TABLE temperature_by_country (country text, city text, weather_station test, temperature float, time_created timestamp, PRIMARY KEY (country,city, weather_station,time_created));
+- primary key is a compound, in the group first column acts as partition key. country is partition key here.
+# example 2 -- single partition key
+CREATE TABLE temperature_by_country (country text, city text, weather_station test, temperature float, time_created timestamp, PRIMARY KEY (weather_station,country,city,time_created));
+- primary key is a compound, in the group first column acts as partition key. weather_station is partition key here.
+
+# example 3 -- compound partition key
+CREATE TABLE temperature_by_country (country text, city text, weather_station test, temperature float, time_created timestamp, PRIMARY KEY ((weather_station,country),city,time_created));
+- primary key is a compound, in the group first column acts as partition key. weather_station and country is partition key here.
+
+# select query example -- single partition key
+- To query data for a column, we need to pass partition key clause as well, as cassandra queries for a partition.
+
+# clustering key
+- Within a partition, the clustering key sorts the rows

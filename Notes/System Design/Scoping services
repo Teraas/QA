@@ -1,0 +1,6 @@
+Expose little info about internals of a service to other service
+maintain loose coupling
+A service will usually not hit DB of other services
+If unrelated behaviours of product are in multiple services tagether, thne deployment will be tough
+Avoid dependency betwene team for development of a feature in service
+Ensure only related behaviours tagether in services like - paymentMake, paymentCancel, paymentConfirm

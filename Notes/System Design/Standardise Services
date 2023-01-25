@@ -1,0 +1,19 @@
+Teck Stack
+    - Keep product and market fit tech stacks, otherwise talent management is difficult
+    - logging tools - ELK or EFK
+    - APM tools - NewRelic or DataDog
+    - status code monitoring on cloud consoles
+    - Distributed Tracing can be solved through tools like Zipkin and AWS X-Ray
+    -Services shuld have a standard way of reporting key metrics like CPU, Memory, Disk, and App Metrics and push into ELK, NewRelic, Datadog or CloudWatch
+
+Standard configurations for tolernce:
+    - limit the number of incoming calls from a service
+    - ability to cut off incoming and outgoing requests from/to a service
+
+Standardise Routes and Endpoints, pagintion, limmit/offsets, Retry, timeouts, payload type
+
+Hysterix fir curcuit breakers
+gRPC for service to service communication, REST for endpoints
+Redis for cache [advantages]
+Prometheous for metrics
+Service DIscovery - Edureka, Consul, Zoopeeker

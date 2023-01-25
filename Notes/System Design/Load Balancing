@@ -1,0 +1,4 @@
+Some Service Discovery services aldo provide Built-in LB support. 
+- Like Consul provides. We can register multiple instances for a service and have then registered. If using Springboot, use @LoadBalanced annotation in the RestTemplate
+- It also has a built-in feature to detect failing nodes
+- has nice DNS gateway

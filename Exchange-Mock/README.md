@@ -1,4 +1,4 @@
-#AlphaGrep Assignment - Exchange Mock
+# AlphaGrep Assignment - Exchange Mock
 - Requirements:
   On a front office trading platform, one of the services would send order orders to exchange for
   execution. Exchange may send a variety of responses to an order depending on various factors.

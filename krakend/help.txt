@@ -1,0 +1,22 @@
+#Krakend configs
+    - rate limiting for the endpoint - simple set by ip, max-rate and client-max-rate
+    - rate limiting by client/user - set a key X-Client in request header, strategy as "header" - https://www.krakend.io/docs/endpoints/
+    - Multiple hosts in host array - endpoints[i].backend.host. This is load balanced using round robin.
+    - In prod, idea we should even replicate api gateway instance and put under a separate LB
+    
+
+With API Gateways, we can centralize the rate limiting configs, as well as processing overhead. Putting rate limit logic on individual level could tedious and inefficient
+ - This will use single responsibility principle
+ - It will even standardize rate limiting logics.
+
+ # Guava rate limiter - https://google.github.io/guava/releases/19.0/api/docs/index.html?com/google/common/util/concurrent/RateLimiter.html
+ # User certain clientId in request headers or IP to rate limit at user level.
+ # Load Shedding is rate limiting at application level
+ # rate limiting blog - https://blog.getambassador.io/rate-limiting-a-useful-tool-with-distributed-systems-6be2b1a4f5f4
+
+ Cons of Gateways:
+    - They will have scalability challenges.
+    - Even if we create multiple instances of gateways under LB, they will manager counter locally, and so ineffective.
+    - ALternative could be maintaing counters centrally in redis like datasource. use HA redis clusters from Azure or AWS. But we need to be sure of atomicity in redis.
+        - Stripe uses Lua in Redis engine to avoid locking (its needed for atomicity)
+    - 

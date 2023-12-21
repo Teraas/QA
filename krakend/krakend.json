@@ -1,0 +1,86 @@
+{
+    "$schema": "https://www.krakend.io/schema/v3.json",
+    "version": 3,
+    "name": "myApiGateway",
+    "timeout": "300000ms",
+    "cache_ttl": "300s",
+    "port": 9000,
+    "output_encoding": "no-op",
+    "endpoints": [
+      {
+        "endpoint": "/UserService/getAllUsers",
+        "method": "GET",
+        "backend": [
+          {
+            "url_pattern": "/UserService/getAllUsers",
+            "sd": "static",
+            "method": "GET",
+            "extra_config": {
+              "qos/circuit-breaker": {
+                "interval": 60,
+                "name": "circuit-breaker-getAllUsers",
+                "timeout": 10,
+                "max_errors": 1,
+                "log_status_change": true
+              },
+              "qos/http-cache": {
+                "shared": true
+              }
+            },
+            "disable_host_sanitize": false,
+            "host": [
+              "http://192.168.1.4:8080", "http://192.168.1.10:8080"
+            ]
+          }
+        ],
+        "extra_config": { 
+          "qos/ratelimit/router": {
+            "max_rate": 2,
+            "client_max_rate": 1,
+            "strategy": "ip"
+          }
+        },
+        "input_headers": [
+          "Authorization"
+        ]
+      },
+      {
+        "endpoint": "/UserService/getUserTree/{id}",
+        "method": "GET",
+        "backend": [
+          {
+            "url_pattern": "/UserService/getUserTree/{id}",
+            "sd": "static",
+            "method": "GET",
+            "extra_config": {
+              "qos/circuit-breaker": {
+                "interval": 60,
+                "name": "circuit-breaker-getUserTree",
+                "timeout": 10,
+                "max_errors": 1,
+                "log_status_change": true
+              },
+              "qos/http-cache": {
+                "shared": true
+              }
+            },
+            "disable_host_sanitize": false,
+            "host": [
+              "http://192.168.1.4:8088", "http://192.168.1.10:8088"
+            ]
+          }
+        ],
+        "extra_config": { 
+          "qos/ratelimit/router": {
+            "max_rate": 20,
+            "client_max_rate": 2,
+            "strategy": "header",
+            "key": "X-User"
+          }
+        },
+        "input_headers": [
+          "Authorization"
+        ]
+      }
+    ]
+  }

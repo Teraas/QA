@@ -1,0 +1,41 @@
+{
+    "$schema": "https://www.krakend.io/schema/v3.json",
+    "version": 3,
+    "name": "myApiGateway",
+    "timeout": "300000ms",
+    "cache_ttl": "300s",
+    "output_encoding": "json",
+    "endpoints": [
+      {
+        "endpoint": "/UserService/getAllUsers",
+        "method": "GET",
+        "output_encoding": "no-op",
+        "extra_config": {
+          "qos/ratelimit/router": {
+            "max_rate": 2,
+            "client_max_rate": 1,
+            "strategy": "header",
+            "key": "X-User"
+          }
+        },
+        "input_headers": [
+          "Authorization"
+        ],
+        "backend": [
+          {
+            "url_pattern": "/UserService/getUserTree/",
+            "encoding": "no-op",
+            "sd": "static",
+            "method": "GET",
+            "host": [
+              "http://192.168.1.10:8088"
+            ],
+            "disable_host_sanitize": false
+          }
+        ],
+        "input_query_strings": [
+          "/id"
+        ]
+      }
+    ]
+  }

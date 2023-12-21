@@ -29,7 +29,7 @@ public class MyUserDetailsService implements UserDetailsService {
         User user = new User();
         Optional<User> users=null;
         try {
-            user = userRepository.findOneByemail(email);
+            user = userRepository.findOneByEmail(email);
         } catch(Exception e){
             System.out.println("DEBUG - Load User "+ e.getMessage());
         }

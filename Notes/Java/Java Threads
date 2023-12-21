@@ -29,3 +29,13 @@
 		a. Default priority. Norm_priority - 5
 		b. Low priority - 1
 		c. High Priority - 10
+
+	9. Java Threads are always going to have corresponding Kernel/Native threads.
+
+	Atomicity::
+	- count++ will not be threadsafe, as multiple threads can override the value in memory
+	- Machine or OS reads the data from register and adds 1 to the variable. 
+	- Its a 3 step process for machin. if 2 threads do the same operation, they could interleave and give wrong result
+	- In case of context switching, all the variables of a thread are saved in thread state as backup and would be used when context is back to this thread.
+	- In Java, the state is stored in Thread Stack of JVM. contains information about the method's parameters, local variables, and the program counter (PC) that points to the next instruction to be executed within that method
+	- Also JVM threads are mapped to operating system threads. And program counter, registers, and other data, is typically saved and managed by the underlying OS.

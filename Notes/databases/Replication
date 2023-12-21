@@ -1,0 +1,25 @@
+For distributed systems, we require multiple DB instances to manage load.
+1. One such design uses master-slave setup for multiple replicas. 
+    - For any writes, first master is updated, then other replicas should also reflect the changes
+    - Option1 - After write to master, it create an event log that contains query statements. Slaves consume and run the write-ahead-log file.
+    - Option2 - After writes to master, it creates row based change log for individual tables, and that log is consumed by slave to make updates. But this log file becomes too verbose due to row-bases change logging
+    - Above approaches are async, so changes not immediately applies, this gives eventual consistency
+
+
+##When you have a master-slave replication setup, where changes are made in the master database and need to be reflected in the replica databases, there are a few key considerations to ensure that the changes are propagated correctly. Here's a general approach:
+
+Synchronous or asynchronous replication: Determine whether your replication is synchronous or asynchronous. In synchronous replication, changes are applied immediately to the replicas before the master acknowledges the transaction's completion. Asynchronous replication allows for a delay between the master and replica updates.
+
+Configure replication settings: Set up the replication configuration properly. This typically involves defining the master and replica connection details, enabling replication on the replica servers, and establishing a secure and reliable communication channel between them.
+
+Monitor replication status: Regularly monitor the replication status to ensure it is running smoothly. Most database systems provide monitoring tools and utilities to check the replication lag, latency, and overall health of the replication process.
+
+Handle replication errors: In case of replication errors or conflicts, it's important to handle them appropriately. Replication errors can occur due to network issues, hardware failures, or conflicts in data modification statements. Depending on the database system, there are various techniques to detect and resolve these errors, such as setting up alerts, retry mechanisms, or implementing conflict resolution strategies.
+
+Ensure transactional consistency: If your application relies on strong consistency guarantees, ensure that the replication mechanism supports transactional consistency. This means that changes made within a transaction on the master should be applied atomically on the replicas as well, ensuring that either all changes are reflected or none at all.
+
+Test replication setup: Before deploying the replication setup in production, perform thorough testing to validate its correctness and performance. Test scenarios should include typical operations performed on the master database, such as insertions, updates, and deletions, and verify that the changes are correctly replicated to the replicas.
+
+Regularly backup replica databases: While replication provides redundancy, it's crucial to periodically back up your replica databases to avoid data loss. In some cases, replication failures or other issues can cause inconsistencies that require restoring from a backup.
+
+By following these steps, you can ensure that changes made in the master database are correctly reflected in the replica databases, maintaining data consistency and redundancy across the system.

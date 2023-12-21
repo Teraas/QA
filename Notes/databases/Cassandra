@@ -15,3 +15,17 @@ CREATE TABLE temperature_by_country (country text, city text, weather_station te
 
 # clustering key
 - Within a partition, the clustering key sorts the rows
+
+The partition key decides in which node/parition the record goes. Same way, during query also we should send so read would be efficient.
+
+# sources
+https://www.baeldung.com/cassandra-keys
+
+https://www.instaclustr.com/blog/cassandra-data-partitioning/
+
+# Tombstones
+This is db cleanup staretgy. If a records= is to be deleted, it is marked as tombstone. And a cron/batch jobs clears the records eventually.
+
+# Choosing a correct partition key is important before app development, so to even out data placement across partitions/nodes.
+
+

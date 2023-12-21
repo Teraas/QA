@@ -1,0 +1,12 @@
+Statefull service/app
+- If server stores any context or data to return response for a query
+- Tough to scale
+- Can use LB with sticky sessions.
+
+
+Stateless service/app
+- Not storing any data or context in app/service server
+- Easier to scale
+- Resilient to failures
+- Increase in latency as data to be fetched/stored in DB/store
+

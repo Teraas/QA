@@ -1,0 +1,29 @@
+Its always a hot topic to understand and implement Security of an application backend services.
+
+Typically for websites, cookies have been used. They are hard to scale, as API servers would need to store context/session, thus making them stateful.
+
+In modern apps, mobile apps can not work with cookies, we require token-based authentication.
+Cookies also have risk of session hijacking problem.
+
+To avoid cookies/sessionid, we can use A TOKEN, store in a DB. When requested, we can send to client, and client can send it in  AUTHOURISATION header. But using just any TOKEN will have repurcussion for dependent service, as they have to be aware of token standard etc.
+
+So we should user known Standard. And that is JWT now a days. It also contains user details, for server can always find the details without requiring DB query etc.
+
+
+Other security feature/issue:
+CORS - Cross-origin request sharing. Request from one domain to another. Usecases like redirects, ad urls.
+Spring also provides CORS support with:
+- In a Spring Boot application, you can handle CORS by configuring the CorsRegistry in a WebMvcConfigurer or by using annotations like @CrossOrigin at the controller level
+
+
+Setup SSL/TLS for API security. [HTTPS]
+- latest cert is TLS. SSL is not used anymore
+
+Setup SSL for Spring MVC app:
+- properties:
+    server.ssl.key-alias=upload-api
+    server.ssl.key-store-type=JKS
+    server.ssl.key-password=password
+    server.ssl.key-store=classpath:upload-api.jks
+- Create self-signed certificate:
+    $ keytool -genkey -alias upload-api -storetype JKS -keyalg RSA -keysize 2048 -validity 365 -keystore upload-api.jks

@@ -1,0 +1,31 @@
+Represent a Binary Tree as an Array:
+- Node at ith
+- Left child at 2i+1
+- right child at 2i+2
+- Level Order traversal
+
+
+
+Full Binary Tree:
+- All nodes till H are having 2 children
+
+Complete Binary Tree
+- Height is logN --- total elemenst max 2pow(h+1)-1
+- till H-1 the tree will be Full BT
+- leaves at H level will be contunuous from left to right
+
+
+Max Heap:
+- its a Complete BT
+- Root is having value larger or equal thank its children
+- Can have duplicates
+- Insertion
+    - always think of array represenatation of it, insert at the end 
+    - to satisfy order of maxHeap, start comparing the new node with its parent do swap when required.
+- Deletion
+    - If parent is deleted, last child in H level replaces the deleted parent
+
+Min Heap:
+- its a Complete BT
+- Root is the smaller or equal to its children
+- Can have duplicates

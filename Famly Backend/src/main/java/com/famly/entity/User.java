@@ -2,6 +2,8 @@ package com.famly.entity;
 
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 // Annotations
 @Entity
@@ -14,13 +16,63 @@ public class User {
 
     private String email;
 
+    private String phone;
+
     private String password;
 
     private String firstName;
 
+    private String middleName;
+
     private String lastName;
 
     private String status;
+
+    private LocalDateTime createdTime;
+
+    //@ManyToOne
+    //@JoinColumn(name="locationId")
+    public long locationId;
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private UserDetail userDetails;
+
+    @PreUpdate
+    public void preUpdate() {
+        this.createdTime = LocalDateTime.now();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public long getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(long locationId) {
+        this.locationId = locationId;
+    }
+
+    public UserDetail getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetail userDetails) {
+        this.userDetails = userDetails;
+    }
 
     public String getStatus() {
         return status;
@@ -29,9 +81,6 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-    //@ManyToOne
-    //@JoinColumn(name="locationId")
-    public long locationId;
 
     public long getLocation() {
         return locationId;

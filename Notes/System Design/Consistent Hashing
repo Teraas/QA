@@ -1,0 +1,4 @@
+When in a distributed system with many servers. ANd no of servers is also dynamic.
+For this case, if we LB has to distribute requests evenly, we need a mechanism.
+If no of servers are static, we can just maintain a ip registry in LB, and use any algorithm.
+But when dynamic, we need to use CH, as it works same with any no of server at any time.

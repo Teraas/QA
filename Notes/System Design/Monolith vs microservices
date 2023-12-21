@@ -1,0 +1,11 @@
+WHEN there is replica of a component, whether API or cache or DB, we will use load balancer.
+
+However API gateway is just to forward request to individual services, so that client does not have to know all IPs of services. This achieves abstraction.
+
+Virtual Private Cloud will have Gateways and Services
+Design patterns for Microservices
+- SAGA (ex swiggy)
+- Ochestrator
+- choreographer
+
+Observer design pattern for Kafka

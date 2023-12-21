@@ -1,0 +1,24 @@
+https://www.crunchydata.com/blog/postgres-full-text-search-a-search-engine-in-a-database
+
+Updating default settings:
+Buffer Pool size to match with OS cache size:-
+- MySQL - increase innodb_buffer_pool_size
+- postgress - increase shared_buffers and effective_cache_size
+
+
+Replication:
+
+https://blog.devgenius.io/postgresql-master-slave-database-replication-a845777901ab
+
+Indexing:
+Choosing efficient indexing can improve perf multi fold.
+
+Data sharding:
+
+Data Partitioning:
+
+
+AWS Dynamo:
+- Has a out-pf-the-box feature to handle spikes / hot-partition problem. It moves the data from 1 node to another to ensure load is balanced.
+- Similar tool Shopify created, which helps in moving data of a shop tp another DB node to balance load/query
+

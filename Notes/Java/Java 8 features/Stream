@@ -1,0 +1,36 @@
+public class Person {
+    String id;
+    String name;
+    Integer age;
+    public Person(String id, String name, Integer age){
+        this.id - id;
+        this.name = name;
+        this.age = age;
+
+    }
+
+    public static void main(String[] agrs){
+        List<> lst = new ArralyList<>();
+        lst.add(new Person("123", "test1", 23));
+        lst.add(new Person("121", "test1ss", 53));
+        lst.add(new Person("126", "testss1", 33));
+        lst.add(new Person("127", "testas1", 43));
+        // print the items with age greater than 30
+        lst.stream().filter(item -> item.age >30 )
+        .collect(Collectors.toList());
+        
+        lst.stream().sorted()
+            .forEach(System.out::println);
+        
+        lst.stream()
+            .distinct()
+            .collect(Collectors.toList());
+
+        lst.stream()
+            .limit(3)
+            .collect(Collectors.toList());
+        
+        lst.stream().reduce(0, (item, sum) -> sum += item.age);
+    
+    }
+}

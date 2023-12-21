@@ -1,0 +1,48 @@
+# Strangler Pattern
+- It helps with gradual replacement of Monolithic with Miscroservices. This will ensure smooth transition.
+# Circuit Breaker design Pattern
+- Ensuring Fault-Tolerance for services to get rid of Cascading Failures or Domino Effect.
+- Use Resilience4J with Spring Boot
+- Use a standard circuit breaker per service or a central CB.
+- Can use API Gateway as well like central mechanism for all services. 
+
+# Service Registry/Discovery Pattern
+- Registering services in Consul/Eureka etc
+- Interservice communication will have seemless service/host lookup, without any configuration management.
+
+# API Gateway pattern
+- Single Endpoint for clients/UI. Client will nto require to manage multiple API host details etc. It helps will routing
+- API GW also provides other services like Circuit-Breaker , auth, Rate Limiting, logging.
+
+
+# Backend for Front ends
+- Dedicated BE for every front end. This ensure modularisation the system overall
+
+
+# Bulkhead patterns
+Isolate microservices in separate paritions
+
+# Retry Pattern
+automatically retry failures. SOmetime failures are intermittent like in external services like payment etc.
+Its useful for longer flows or transcational flows, when trying the entire flow can be bad for sytems as well as User exp.
+
+# SAGA pattern
+Managing the transaction across multiple services (cart, order, payment, dispatch)
+ Saga Orchestration: With example cases - Order, Payment, Inventory
+ - Uses a central orchestration service. It communicates with all the services to track the trx
+ - InventoryController - /deduct , /add
+ - OrderController - /create, /all. [also gets orchestration id etc]
+ - PaymentController - /debit, /credit
+https://www.youtube.com/watch?v=-GvM78pisR0&ab_channel=JavaTechSolutions
+
+ SAGA choreographer:
+ - 
+
+
+# Event driven systems
+
+# CQRS - Command query responsibility segregation
+Segregate Reads and Write to effectively scale the systems.
+
+# Configuration Externalisation
+- use configs to manage the service. So without redeployment a service could be enabled with features

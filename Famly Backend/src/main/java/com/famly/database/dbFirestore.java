@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
+@Deprecated
 public class dbFirestore {
     private static String DB = "https://familytree-bee8f-default-rtdb.asia-southeast1.firebasedatabase.app/";
 

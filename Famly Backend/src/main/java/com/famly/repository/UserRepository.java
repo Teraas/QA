@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     void deleteById(Long id);
     User save(User user);
     //User findByemail(EmailAddress emailAddress);
-    //@Query("SELECT u FROM User u WHERE u.email = :email")
-    User findOneByemail(String email);
+    @Query("SELECT u FROM User u WHERE u.email = :email")
+    User findOneByEmail(String email);
 }

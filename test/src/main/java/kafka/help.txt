@@ -1,0 +1,10 @@
+Machine - ubuntu@harish@1
+Install kafka - https://kafka.apache.org/quickstart
+- wget https://dlcdn.apache.org/kafka/3.4.0/kafka_2.13-3.4.0.tgz
+
+Kafka uses ZooKeeper to conrdinate Brokers
+- Brokers actually store and manage topics, while paritions stores data and does parallelism
+
+Setup:
+- Start zookeeper first - bin/zookeeper-server-start.sh config/zookeeper.properties
+- Start broker service - bin/kafka-server-start.sh config/server.properties

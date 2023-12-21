@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping(path = "/AuthService")
+@RequestMapping(path = "/auth")
 class AuthController {
 
     @Autowired
@@ -38,6 +38,7 @@ class AuthController {
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         System.out.println("Current user to log in ---- " + authenticationRequest.toString());
+        //Thread.sleep(1000*300);
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
 
@@ -84,7 +85,7 @@ class AuthController {
                 .loadUserByUsername(authenticationRequest.getUsername());
 
         final String jwt = jwtTokenUtil.generateToken(userDetails);
-        // TODO update the USer table with token and creds.
+        // TODO update the User table with token and creds.
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 

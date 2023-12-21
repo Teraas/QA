@@ -1,0 +1,7 @@
+1. How to find Vertical sums of a Binary Tree:
+- Set root value as 0, left as -1, and right as +1, do the same for all nodes.
+- Now we can find Nodes with values 0,1,-1,2,-2 etc in a Map.
+
+2. Find maximum width of Binary tree
+- What is BT property - a. Max 2 leaves
+- b. 

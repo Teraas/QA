@@ -14,17 +14,18 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(path = "/FamlyService")
+@RequestMapping(path = "/famly")
 public class FamlyController {
 
-    @Autowired
-    private UserService userService;
+//    @Autowired
+//    private UserService userService;
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private UserRelationRepository userRelationRepository;
 
-    @GetMapping(path = "/getUserTree/{id}", produces = "application/json")
+    // TODO - move the business logic in Sevice class
+    @GetMapping(path = "/tree/{id}", produces = "application/json")
     public Map<Long, List<?>> getUserTree(@PathVariable(value = "id") Long id) throws ExecutionException, InterruptedException {
         int maxRelations = 500;
         Queue<Long> queue = new LinkedList<>();

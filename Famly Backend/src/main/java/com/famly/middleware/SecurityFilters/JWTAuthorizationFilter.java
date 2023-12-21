@@ -1,4 +1,4 @@
-package com.famly.SecurityFilters;
+package com.famly.middleware.SecurityFilters;
 
 import com.famly.services.MyUserDetailsService;
 import com.famly.util.JwtUtil;

@@ -1,0 +1,7 @@
+Consumer Groups:
+- Consumers in a Group
+
+- If a producer publishes a msg in a topic, consumer subscribes to a topic. Consumer cmay or may not have a consumer group.
+- If the Kafka is configured with Fan-Out setting, a msg could be sent to all consumer groups subscribed to the topic.
+- If multiple consumers are in a Group, only 1 consumer recieves the data which insure better parallelisation.
+- Kafka also provides Point-to-Point Semantics, where if a msg is published and multiple COnsumer Groups, the configuration can help multiple consumer group recieving the copy of data from the topic but each msg gets consumed by one consumer-group

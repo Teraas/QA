@@ -1,0 +1,32 @@
+M-way trees
+- Multiple keys and multiple children
+- m-1 keys in a node, and m children for the node.
+- Its like an extention on BST. BST will have 2 or less children, while Mway could have more than 2.
+- A general M way will not have any guidelines on insertion/deletion, which makes it less efficient.
+
+B Tree
+- It is a M-way tree with set of guidelines.
+    - Every node must have atleasy m/2 children, once this is satisfied we think of creating a new node. This control max height of a tree.
+    - root can have minimum 2 children
+    - All leaf nodes at same level
+    - Tree is created in bottom up approach
+
+
+B+ Tree
+- Its same as B Tree, but only leaf nodes will have Record pointers. The non-leaf will have keys.
+- Used in modern RDBMS sustems. Its reduced IO for disc, by reducing total reads, in logn ops.
+
+
+Binary Tree:
+- Max no of nodes at l level is 2^l
+- Max no of total nodes are 2^h-1
+
+Binary Search Tree:
+- Left subtree contains values/keys lesser than that of Root, 
+- Right subtree contains values/keys greater than that of Root
+- Both left and right subtrees are BST
+
+Complete/Strict Binary Tree:
+
+
+

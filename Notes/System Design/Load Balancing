@@ -2,3 +2,27 @@ Some Service Discovery services aldo provide Built-in LB support.
 - Like Consul provides. We can register multiple instances for a service and have then registered. If using Springboot, use @LoadBalanced annotation in the RestTemplate
 - It also has a built-in feature to detect failing nodes
 - has nice DNS gateway
+
+
+LB techniques/algos
+- Round Robin - in sequence, distributing the reqs among the servers equally. Mod x to get the server
+- Weighted Round Robin - In sequence but assigning requests by weight to servers
+- Least Connections - dependending on No ov Connections(TCP) between LB and App servers, a requests is sent to LC server.
+- Weighted LC in case servers of different capacity
+- Least Response Time - 
+
+Hash Based routing - 
+LB to use Consistent Hashing. Request/bucket could be generated using a hash algo like MD5 or SHA
+- to ensure request buckets are assigned to correct serverid from CH ring.
+- Ring can be clock-wise or anti clock-wise
+- In case of stateful server requirement, CH would work well. To handle SPOF, copy state/data could bestored in next server in ring.
+- The shard key or bucket key is the hash.
+
+CAP:
+C is consistency - same data always from every server
+A is availability - no SPOF. For this we always require n/w partitioning which is what is P in CAP
+P is partitioning
+- If we create n/w partitioning of server, we can not give Strong Consistency
+    - However if we expect latency to be high, then even Consistency can be achieved. [ PACELC theorem]
+
+    

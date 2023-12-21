@@ -1,33 +1,22 @@
 package com.famly;
 
-import com.famly.SecurityFilters.JWTAuthorizationFilter;
-import com.famly.entity.AuthenticationRequest;
-import com.famly.entity.AuthenticationResponse;
-import com.famly.services.MyUserDetailsService;
-import com.famly.util.JwtUtil;
+import com.famly.middleware.SecurityFilters.JWTAuthorizationFilter;
+import io.minio.MinioClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.LockedException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class Application {
@@ -36,6 +25,17 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	@Bean
+	public MinioClient minioClient(Environment environment) {
+		String endpoint = environment.getProperty("minio.endpoint");
+		String accessKey = environment.getProperty("minio.access-key");
+		String secretKey = environment.getProperty("minio.secret-key");
+
+		return MinioClient.builder()
+				.endpoint(endpoint)
+				.credentials(accessKey, secretKey)
+				.build();
+	}
 }
 
 
@@ -73,9 +73,11 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()
-				.authorizeRequests().antMatchers("/authenticate").permitAll().
-						anyRequest().authenticated().and().
-						exceptionHandling().and().sessionManagement()
+				.authorizeRequests()
+				.antMatchers("/auth/authenticate").permitAll()
+				.antMatchers("/user/").permitAll()
+				.anyRequest().authenticated()
+				.and().exceptionHandling().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 

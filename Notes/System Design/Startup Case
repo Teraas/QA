@@ -1,0 +1,86 @@
+$ https://betterprogramming.pub/architecture-of-modern-startup-abaec235c2eb
+
+Design Considerations:
+# App Distribution
+- 'testFlight' for iOS
+- For Android, App Distribution from 'Firebase'
+- Roll out to prodiction in app sores is slow. Follow formalities like - Screenshots, change Log.
+- 'Fastlane' to help with release to stores.Helps reduce help of engineers, it prepares app for release.
+- Even using 'fastlane', some effort needed to integrate with CI, secrets for both android and iOS to be used in 'jks' and 'match' respectively.
+
+# App design:
+- 'Flutter' can provide same code for all clients. Built, lint and test. Publish using App Distribution solution.
+- Signle code base can be useful and appealing
+- Use based on betetr state management
+
+# CICD
+- GitHUb for Backend Mobile, Static Web pages.
+- Feature branching and PRs. PR with automation tests.
+- Production rollout using GitHub Actions.
+- GitHub 'self-hosted' runners. SO run your CI checks on your own VMs, not GH's VMs.
+
+# Infra Management and setup
+- 'Teraform' to create and apply infra changes.
+- 'Helm' charts release to be in AWS 'ECR'. It keeps track of every release. ECR - Elastic Container Repository, can store docker images.
+- Kub + Vault + TF + Helm could work if compatibility is ensured
+- DB schema changes and deployment. (terraform?)
+- Component versions stored (where?)
+- Docker+ K8 for compute machines. Kube provides declaratibe way to manage infra.
+- To control release in stage/test/dev vs prod, use deploy-specific configurations - Infra config, parameterisation of API URls, Policy etc.
+- 3 enviroments are needed - Staging(or development) , E2E(Integration env), Prod.
+- Segregate the env infras by 'namespaces'.
+
+# Secrets Managements
+- Secrets like Keys, credentials (db, datastores, 3rd party etc)
+- HashiCorp 'VAULT'
+- AWS KMS and IAM
+- GitHub secret management. KMS can integrate with GH
+
+# Public and Private access control of services.
+- Identity providers like Azure Active directory, integrate it with VPN providers
+- openVPN as free trier can be used. 
+- there are paid solutions also like Cloudflare.
+- Secure access, Zero Trust policy.
+- Data security
+- Expose certain services to internal teams only.
+# Testing
+- Auto rollout to E2E/staging k8s enviroments. DB snapshots, S3 bucket setups.
+- Building test APKs for testing
+- Flutter integration and appium setup for E2E testing using Appium+SauceLabs+
+- Staging env setup with 'TestFlight' and Firebase 'Apptester'.
+- Manual testing should be minimised as much as possible. As business logics are evelvoing and complex, which makes manual testing time-consuming and error-prone.
+- Emulators or Cloud based device providers(Browserstack, Saucelabs, LambdaTest). Unless specific hardware requirements, emulators could be enough.
+- Firebase also provides Test Lab.
+- Appium pytests or Flutter integration tests
+- Building the app and copying to devices/emulators can be slow. Can run only few times a day.
+# Branching Strategy
+- Use features branches for development.
+- For testing use a single main branch for test/qa/stag enviroments. Auto deploy to respective k8s.
+Feature algs to ensure control of feature in specific enviroments.
+- Independent repositories are always good to release without any issue.
+- For Dependent repos which have shared functionality, should be carefully released. 
+- Promote dependent/shared functionaliy automatically to Staging/E2E enviroments, and dependent teams should be aware,
+- Release/Promotimg to prod should controlled or manual.
+
+# Monitoring
+- ELK with Filebeat
+- Grafana
+- Google Analytics
+- Prometheous (even custom dashboards power with Prometheous)
+- Slack for alerts
+
+# Customer support
+- 'Zendesk'
+
+# Notification service
+- 'Twilio' for SMS
+- 'mailgun' for mails
+- Firebase for In-App notifications
+
+# Auto checks
+- Linters and Static analysers - ensure code standard checks.
+- 'Codesense' plugin for VS Code
+
+# API styles/specs
+- 'openAPI'
+- 'fastapi'

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
 
+@Deprecated
 public class dbRDS {
 
     public static final String dbInstanceID = "myfamlytreedb";
@@ -37,40 +38,40 @@ public class dbRDS {
         return null;
     }
 
-    public static void main(String[] args){
-        Connection conn = null;
-        Statement setupStatement = null;
-        Statement readStatement = null;
-        ResultSet resultSet = null;
-        String results = "";
-        int numresults = 0;
-        String statement = null;
-        Connection db =null;
-
-        try {
-            // Create connection to RDS DB instance
-            conn = getRemoteConnection();
-
-            // Create a table and write two rows
-            setupStatement = conn.createStatement();
-            String createTable = "CREATE TABLE Beanstalk (Resource char(50));";
-            String insertRow1 = "INSERT INTO Beanstalk (Resource) VALUES ('EC2 Instance');";
-            String insertRow2 = "INSERT INTO Beanstalk (Resource) VALUES ('RDS Instance');";
-
-            setupStatement.addBatch(createTable);
-            setupStatement.addBatch(insertRow1);
-            setupStatement.addBatch(insertRow2);
-            setupStatement.executeBatch();
-            setupStatement.close();
-
-        } catch (SQLException ex) {
-            // Handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        } finally {
-            System.out.println("Closing the connection.");
-            if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
-        }
-    }
+//    public static void main(String[] args){
+//        Connection conn = null;
+//        Statement setupStatement = null;
+//        Statement readStatement = null;
+//        ResultSet resultSet = null;
+//        String results = "";
+//        int numresults = 0;
+//        String statement = null;
+//        Connection db =null;
+//
+//        try {
+//            // Create connection to RDS DB instance
+//            conn = getRemoteConnection();
+//
+//            // Create a table and write two rows
+//            setupStatement = conn.createStatement();
+//            String createTable = "CREATE TABLE Beanstalk (Resource char(50));";
+//            String insertRow1 = "INSERT INTO Beanstalk (Resource) VALUES ('EC2 Instance');";
+//            String insertRow2 = "INSERT INTO Beanstalk (Resource) VALUES ('RDS Instance');";
+//
+//            setupStatement.addBatch(createTable);
+//            setupStatement.addBatch(insertRow1);
+//            setupStatement.addBatch(insertRow2);
+//            setupStatement.executeBatch();
+//            setupStatement.close();
+//
+//        } catch (SQLException ex) {
+//            // Handle any errors
+//            System.out.println("SQLException: " + ex.getMessage());
+//            System.out.println("SQLState: " + ex.getSQLState());
+//            System.out.println("VendorError: " + ex.getErrorCode());
+//        } finally {
+//            System.out.println("Closing the connection.");
+//            if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
+//        }
+//    }
 }

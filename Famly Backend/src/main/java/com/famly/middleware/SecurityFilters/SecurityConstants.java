@@ -1,4 +1,4 @@
-package com.famly.SecurityFilters;
+package com.famly.middleware.SecurityFilters;
 
 public class SecurityConstants {
     public static final String TOKEN_PREFIX = "Bearer ";

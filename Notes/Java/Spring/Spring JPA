@@ -1,0 +1,28 @@
+Use JPA Repository interface to implemebt in Entityies.
+You can relations among tables using oneTOMany or ManyToOne
+# [Spring Data] Use JPQL to fetch data. Use @Query Anotation
+https://www.baeldung.com/spring-data-jpa-query
+
+Ex @Query("SELECT u FROM User u WHERE u.status = 1")
+Collection<User> findAllActiveUsers();
+# using SQL native example
+@Query(
+  value = "SELECT * FROM USERS u WHERE u.status = 1", 
+  nativeQuery = true)
+Collection<User> findAllActiveUsersNative();
+
+# Sorting or Group by
+@Query(value = "SELECT u FROM User u")
+List<User> findAllUsers(Sort sort);
+
+# Pagination
+@Query(value = "SELECT u FROM User u ORDER BY id")
+Page<User> findAllUsersWithPagination(Pageable pageable);
+
+# Query with index parameters
+@Query("SELECT u FROM User u WHERE u.status = ?1")
+User findUserByStatus(Integer status);
+
+@Query("SELECT u FROM User u WHERE u.status = ?1 and u.name = ?2")
+User findUserByStatusAndName(Integer status, String name);
+

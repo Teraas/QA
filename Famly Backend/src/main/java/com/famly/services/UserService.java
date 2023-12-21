@@ -28,10 +28,7 @@ public class UserService {
         // future.get() blocks on response
         List<QueryDocumentSnapshot> documents = future.get().getDocuments();
         List<User> userList = new ArrayList();
-        for (QueryDocumentSnapshot document : documents) {
-            userList.add(document.toObject(User.class));
-            System.out.println("[FAMLY-DEBUG] getting all users" + document.getId() + " => " + document.toObject(User.class));
-        }
+
         return userList;
     }
 
@@ -48,6 +45,10 @@ public class UserService {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(user.getEmail()).set(user);
         return collectionsApiFuture.get().getUpdateTime().toString();
+    }
+
+    public void updateUser(User user){
+
     }
 
 

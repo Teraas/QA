@@ -1,0 +1,28 @@
+Cache Aside:
+- Reads from cache
+- cache miss
+- fetch from db via app
+- update cache via application
+
+could have stale data in cache when updates in DB
+
+Cache - Read Through
+- read from cache
+- cache miss
+- fetch from db via cache
+- update cache via cache
+
+cache update logic in cache.
+
+Cache - Write back
+- Read and write to cache
+- update to DB async/batch --- eventual consistency in DB. Data loss if cache is down as cache does not have persistence to disk.
+- low read/write latency
+
+Cache - Write Through
+- Read and write to cache
+- update to db sync . Data consistency
+- High latenct for write.
+
+Cache - Write behind
+- data written to cache async from db/app

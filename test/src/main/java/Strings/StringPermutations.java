@@ -1,8 +1,6 @@
 package Strings;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Collections;
+import java.util.*;
 
 public class StringPermutations {
     public static Set<String> getPermutations(String inputString) {
@@ -29,5 +27,22 @@ public class StringPermutations {
         }
 
         return permutations;
+    }
+
+    public static void main(String[] args){
+        Integer[] arr = {1,2,3};
+        List list = new ArrayList<>();
+        List list2 = new ArrayList<>();
+        list2.add(1);list2.add(2);list2.add(3);
+        Collections.addAll(list, arr);
+
+        String[] array1 = {"new", "String", "array"};
+
+        List<String> list1 = new ArrayList<>(Arrays.asList(array1));
+
+        Set<String> res = getPermutations("list");
+        System.out.println(res);
+
+
     }
 }

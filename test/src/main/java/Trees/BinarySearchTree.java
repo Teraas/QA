@@ -10,7 +10,8 @@ public class BinarySearchTree {
         root.right.left = new BinaryTree(7);
         root.right.right = new BinaryTree(10);
 
-
+        boolean res = isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        System.out.println(res);
 
     }
 

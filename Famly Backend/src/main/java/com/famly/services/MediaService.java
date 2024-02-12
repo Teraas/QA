@@ -5,6 +5,7 @@ import io.minio.GetPresignedObjectUrlArgs;
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
 import io.minio.errors.*;
+import io.minio.http.Method;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -41,7 +42,8 @@ public class MediaService {
                     GetPresignedObjectUrlArgs.builder()
                             .bucket(bucketName)
                             .object(objectName)
-                            .expiry(365, TimeUnit.DAYS)
+                            .expiry(7, TimeUnit.DAYS)
+                            .method(Method.GET)
                             .build()
             );
         } catch (ErrorResponseException e) {

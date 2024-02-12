@@ -1,6 +1,10 @@
 package com.famly.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -8,12 +12,14 @@ import java.time.LocalDateTime;
 // Annotations
 @Entity
 @Table(name = "users")
+@AllArgsConstructor
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @NonNull
     private String email;
 
     private String phone;
@@ -34,7 +40,7 @@ public class User {
     //@JoinColumn(name="locationId")
     public long locationId;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "user", fetch = FetchType.EAGER)
     private UserDetail userDetails;
 
     @PreUpdate

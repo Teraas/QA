@@ -46,3 +46,6 @@ Segregate Reads and Write to effectively scale the systems.
 
 # Configuration Externalisation
 - use configs to manage the service. So without redeployment a service could be enabled with features
+
+
+Sidecar pattern

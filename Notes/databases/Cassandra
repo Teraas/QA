@@ -25,7 +25,17 @@ https://www.instaclustr.com/blog/cassandra-data-partitioning/
 
 # Tombstones
 This is db cleanup staretgy. If a records= is to be deleted, it is marked as tombstone. And a cron/batch jobs clears the records eventually.
+its called compaction. 
 
 # Choosing a correct partition key is important before app development, so to even out data placement across partitions/nodes.
 
 
+It uses LSM (Log Structured Merge tree) tree as Data strcuture, that is In-Memory. ANd it pushes/flushed the data to SSTable (SOrted String).
+LSM has better write throughput. B Tress have better read.
+
+Its leaderless. With many replicas. Ensures High Availability.
+With Quorums we can increase COnsistency and reduce Availability. Write quorums + Read Quorums > N then more consistency.
+
+# Its does not have ACID. Could even be data loss or dirty reads.
+
+Main Partitions/Nodes/Leader are over a ring. So request go to same node always. Based on partition key.

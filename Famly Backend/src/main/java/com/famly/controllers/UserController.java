@@ -1,6 +1,7 @@
 package com.famly.controllers;
 
 import com.famly.entity.User;
+import com.famly.entity.UserDetail;
 import com.famly.entity.UserRelation;
 import com.famly.repository.UserRelationRepository;
 import com.famly.repository.UserRepository;
@@ -14,7 +15,7 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/user")
 public class UserController {
 
     @Autowired
@@ -40,6 +41,8 @@ public class UserController {
         User user = null;
         try{
             user = userRepository.findById(id).get();
+            UserDetail userDetail = user.getUserDetails();
+            user.setUserDetails(userDetail);
             System.out.println("[Monitoring] - [Debug] " + user);
         } catch(Exception e){
             System.out.println("[Monitoring] - [exception]" +e.getMessage());
@@ -51,7 +54,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@RequestBody  User user) {
         try {
             User _user = userRepository
                     .save(user);

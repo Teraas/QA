@@ -48,6 +48,7 @@ public class MediaController {
         try {
             String fileName = file.getOriginalFilename();
             String uriObject = mediaService.uploadFile(bucketName, fileName, file.getInputStream());
+            System.out.println("URL Image -> " + uriObject);
             userDetails.setProfileLink(uriObject);
             userRepository.save(user);
             return ResponseEntity.ok("File uploaded successfully: " + fileName);
@@ -66,6 +67,7 @@ public class MediaController {
             String fileName = file.getOriginalFilename();
             String uriObject = mediaService.uploadFile(bucketName, fileName, file.getInputStream());
             userDetails.setFamly_tree_link(uriObject);
+            System.out.println("URL Image -> " + uriObject);
             userRepository.save(user);
             return ResponseEntity.ok("File uploaded successfully: " + fileName);
         } catch (Exception  e) {

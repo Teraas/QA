@@ -1,7 +1,6 @@
 package concurrency;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 import DesignPatterns.example.User;
 
@@ -13,7 +12,17 @@ public class ThreadsTest {
     User user;
 
     public static void main(String[] args){
+        ExecutorService service1 = new ThreadPoolExecutor(1,2,2, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1));
         ExecutorService service = Executors.newFixedThreadPool(4);
+        Future f = service.submit(new Test());
+        Future f2 = service1.submit(new Test());
+        try {
+            f.get(); // get response from thread execution
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         User user = new User();
         user.setEmail("email");
         ThreadsTest test = new ThreadsTest(user);
@@ -32,5 +41,13 @@ public class ThreadsTest {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    static class Test implements Runnable {
+
+        @Override
+        public void run() {
+
+        }
     }
 }

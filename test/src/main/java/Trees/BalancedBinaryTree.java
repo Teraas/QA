@@ -6,6 +6,33 @@ import java.util.Deque;
 import java.util.List;
 public class BalancedBinaryTree {
 
+    public static void main(String[] args) {
+        /**
+         *              10
+         *              / \
+         *             6   15
+         *            / \  / \
+         *           5  7  12  16
+         */
+        BinaryTreeNode node = new BinaryTreeNode(10);
+        node.left = new BinaryTreeNode(6);
+        node.right = new BinaryTreeNode(15);
+
+        node.left.right = new BinaryTreeNode(7);
+        node.left.left = new BinaryTreeNode(5);
+
+        node.right.right = new BinaryTreeNode(16);
+        node.right.left = new BinaryTreeNode(12);
+
+        node.right.left.right = new BinaryTreeNode(22);
+        node.right.right.right = new BinaryTreeNode(18);
+
+        node.right.left.right.right = new BinaryTreeNode(33);
+
+        boolean res = isBalanced(node);
+        System.out.println(node);
+    }
+
     public static boolean isBalanced(BinaryTreeNode treeRoot) {
 
         // a tree with no nodes is superbalanced, since there are no leaves!
@@ -43,7 +70,8 @@ public class BalancedBinaryTree {
                 }
 
                 // case: this isn't a leaf - keep stepping down
-            } else {
+            }
+            else {
                 if (node.left != null) {
                     nodes.push(new NodeDepthPair(node.left, depth + 1));
                 }
@@ -55,17 +83,40 @@ public class BalancedBinaryTree {
 
         return true;
     }
-}
+    static class NodeDepthPair {
 
- class NodeDepthPair {
+        BinaryTreeNode node;
+        int depth;
 
-    BinaryTreeNode node;
-    int depth;
+        NodeDepthPair(BinaryTreeNode node, int depth) {
+            this.node = node;
+            this.depth = depth;
+        }
+    }
 
-    NodeDepthPair(BinaryTreeNode node, int depth) {
-        this.node = node;
-        this.depth = depth;
+    static class InfoPair {
+
+        boolean isBalanced ;
+        int height;
+
+        InfoPair(boolean bool, int height) {
+            this.isBalanced = bool;
+            this.height = height;
+        }
+    }
+
+    public static InfoPair isBalanced1(BinaryTreeNode root) {
+        if(root == null)
+            return new InfoPair(true, -1);
+
+        InfoPair pairL = isBalanced1(root.left );
+        InfoPair pairR = isBalanced1(root.right );
+        boolean isBalance = pairL.isBalanced && pairR.isBalanced && Math.abs(pairL.height- pairR.height) <=1 ;
+        int maxH = Math.max(pairL.height, pairR.height);
+        return  new InfoPair(isBalance, maxH+1);
     }
 }
+
+
 
 

@@ -28,18 +28,20 @@ public class DiameterTree {
     private DiameterNode getMaxDiameter(BinaryTree tree) {
         if(tree == null)
             return new DiameterNode(0, 0);
-        if(tree.left == null &tree.right == null)
-            return new DiameterNode(1, 0);
+        //if(tree.left == null && tree.right == null)
+            //return new DiameterNode(1, 0);
         DiameterNode left =getMaxDiameter(tree.left);
         DiameterNode right = getMaxDiameter(tree.right);
         int rightH = right.height;
         int leftH = left.height;
+        int currMaxpath = rightH + leftH;
+        int currentMaxH = Math.max(leftH, rightH) +1;
+        int currentMaxDiam = Math.max(left.diameter, right.diameter);
+        int maxDiam = Math.max(currentMaxDiam, currMaxpath);
 
 
 
-        //int diam = Math.max(rightH, leftH, leftH);
-        //return new DiameterNode(diam, right, left);
-        return null;
+        return new DiameterNode(maxDiam, currentMaxH);
     }
 
     static class DiameterNode {

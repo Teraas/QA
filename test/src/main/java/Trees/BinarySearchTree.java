@@ -1,7 +1,7 @@
 package Trees;
 
 public class BinarySearchTree {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         BinaryTree root = new BinaryTree(6);
         root.left = new BinaryTree(4);
         root.right = new BinaryTree(8);
@@ -15,13 +15,42 @@ public class BinarySearchTree {
 
     }
 
-    public static boolean isBST(BinaryTree root, long min, long max){
+    public static boolean isBST(BinaryTree root, long min, long max) {
         // check the short-circuit condition/basecase for recursion. Return true if null or empty left/right
-        if(root ==null || (root.left==null && root.right==null) )
+        if (root == null )
             return true;
-        else{
+        else {
             // leftTree < root.value && rightTree >root.value
-            return (root.value >min && root.value <max && isBST(root.left, min,root.value) && isBST(root.right, root.value, max));
+            return (root.value >= min && root.value < max && isBST(root.left, min, root.value) && isBST(root.right, root.value, max));
+        }
+    }
+
+    static class BST {
+        public int value;
+        public BST left;
+        public BST right;
+
+        public BST(int value) {
+            this.value = value;
+            left = null;
+            right = null;
+        }
+
+        public void insert(int value) {
+            if (value < this.value) {
+                if (left == null) {
+                    left = new BST(value);
+                } else {
+                    left.insert(value);
+                }
+            } else {
+                if (right == null) {
+                    right = new BST(value);
+                } else {
+                    right.insert(value);
+                }
+            }
         }
     }
 }
+

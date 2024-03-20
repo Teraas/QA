@@ -36,8 +36,9 @@ public class User {
 
     private LocalDateTime createdTime;
 
-    //@ManyToOne
+    @OneToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name="locationId")
+    //public Location location;
     public long locationId;
 
     @OneToOne(cascade = CascadeType.PERSIST, mappedBy = "user", fetch = FetchType.EAGER)

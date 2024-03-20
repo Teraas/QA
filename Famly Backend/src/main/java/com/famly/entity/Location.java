@@ -1,9 +1,6 @@
 package com.famly.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Location {
@@ -20,6 +17,9 @@ public class Location {
     private Long locationID;
     private String longitude;
     private String lattitude;
+
+    @OneToOne(mappedBy = "location")
+    User user;
 
     public String getLongitude() {
         return longitude;

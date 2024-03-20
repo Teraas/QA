@@ -4,3 +4,4 @@ Use https for all pages.
 HTTP Strict Transport Security Header instructs browsers to use HTTPS only
 Cookies should be secure
 
+100209

@@ -1,0 +1,18 @@
+https://blog.getambassador.io/designing-a-rate-limiting-service-for-ambassador-f460e9fabedb
+
+https://blog.getambassador.io/implementing-a-java-rate-limiting-service-for-the-ambassador-api-gateway-e09d542455da
+
+https://github.com/danielbryantuk/ambassador-java-rate-limiter/blob/master/src/main/java/io/datawire/ambassador/ratelimiter/simpleimpl/RateLimitServer.java
+
+
+https://stripe.com/blog/rate-limiters
+
+https://eng.lyft.com/announcing-ratelimit-c2e8f3182555
+
+https://github.com/shameed1910/spring-resilience4j-ratelimiter
+
+
+Commons algos:
+Bucket Mechnism
+
+Leaky Bucket Mechanism

@@ -105,6 +105,7 @@ Troubleshootung:
 	7. perf report -n -T --header
 	8. sudo perf record -a
 	9. run top -H and get PID of the thread with highest CPU.
+	10. nslookup -type=ns google.co.in
 	
 		
 	

@@ -1,0 +1,12 @@
+Its does support ACID.
+DOcument based
+SIngle Leader based replication. Stronger consistency
+uses BTree
+
+
+
+https://dba.stackexchange.com/questions/185763/why-are-nosql-databases-not-acid-compliant
+
+https://www.infoq.com/presentations/NoSQL-History/
+
+

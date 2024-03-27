@@ -17,3 +17,5 @@ Partitions can be distributed in broker instances/machine. Similarly replicas al
 Among the replicas of the partitions, one will be leader and rest will be follower. this gives fault tolernce.
 
 
+https://medium.com/@bectorhimanshu/setting-up-installing-and-starting-the-kafka-server-on-macos-7d505e32039a
+

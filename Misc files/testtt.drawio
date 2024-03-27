@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" modified="2024-02-26T10:03:38.370Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="X3xKeaPNEjX6Ajl3SLSM" version="23.1.6" type="device">
+  <diagram name="Page-1" id="ZH3UQgej1HWQln0i0elL">
+    <mxGraphModel dx="877" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-1" value="Services" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-2" value="TestCases" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="bcLRUgp1xKYGGszs_tJZ-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bcLRUgp1xKYGGszs_tJZ-3" target="bcLRUgp1xKYGGszs_tJZ-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-3" value="Core Framewordk" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-5" value="BU1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-6" value="BU2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="730" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-8" value="Utiities&lt;br&gt;Parsers, integration, reporters" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-9" value="Services" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-10" value="TDM" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.142;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="bcLRUgp1xKYGGszs_tJZ-9" target="bcLRUgp1xKYGGszs_tJZ-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-12" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Test1&lt;/p&gt;&lt;p&gt;S1, S1, S3&lt;/p&gt;&lt;p&gt;5,7.&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="560" y="410" width="190" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-13" value="&lt;h1&gt;Heading&lt;/h1&gt;&lt;p&gt;Test1&lt;/p&gt;&lt;p&gt;S1, S1, S3&lt;/p&gt;&lt;p&gt;5,7.&lt;/p&gt;&lt;p&gt;Servcie s1 = new Service();&lt;/p&gt;&lt;p&gt;S.getSOmetihng();&amp;nbsp;&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="420" width="190" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-14" value="BaseService" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-15" value="Basetest" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-16" value="TestListener" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-17" value="Reporter" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-18" value="Xray, Slack, Smartesmond" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-19" value="jackSon" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-20" value="Java kafka client" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-21" value="DDBUtility" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-22" value="Redis" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-23" value="SecretUtilGSM" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bcLRUgp1xKYGGszs_tJZ-24" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="940" y="500" as="sourcePoint" />
+            <mxPoint x="1020" y="500" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

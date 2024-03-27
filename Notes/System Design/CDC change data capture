@@ -1,0 +1,22 @@
+https://hevodata.com/learn/change-data-capture/
+
+
+    Microservices Integration: You can use CDC to sync microservices with traditional applications. This allows smooth transfer of data changes from legacy systems to microservices-based applications.
+
+    Compliance and Auditing: You need to save a history of data changes to follow the strict data compliance requirements. You can also use CDC to save data changes for archiving or auditing requirements.
+
+    Analytics Dashboards: You can use CDC to feed data changes to analytics dashboards to support effective decision-making for business intelligence.
+
+    Cache Invalidation: Capture Data Change can also be used to invalidate caches. This ensures that the outdated entries in a cache are removed or replaced to make way for the latest versions.
+    Full-text Search: You can use CDC Change Data Capture to automatically keep a full-text search index aligned with the database.
+
+    CQRS Model Updates: Change Data Capture can be used to keep Command Query Responsibility Separation (CQRS) read models aligned with the primary models.
+
+
+
+Here are a few popular open-source Change Data Capture tools that you can consider for your workforce:
+
+    Maxwell: Maxwell reads the MySQL binlogs and writes row updates as JSON to Kafka and Kinesis, to name a few platforms. Since Maxwell has low operational overhead, needing nothing other than MySQL and a space to write, it should be on the top of your ‘Change Data Capture Tools to Keep a Lookout For’.
+    Debezium: Debezium is an open-source CDC platform that’s built on top of Apache Kafka. It has connectors to pull a change stream from the databases like MySQL, PostgreSQL, and MongoDB, and send that to Kafka. Kafka Connect is used for change propagation and detection here. You can either use Debezium as a standalone server or you can embed it into your application code as a library
+
+    

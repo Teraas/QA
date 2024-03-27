@@ -36,7 +36,9 @@ Managing the transaction across multiple services (cart, order, payment, dispatc
 https://www.youtube.com/watch?v=-GvM78pisR0&ab_channel=JavaTechSolutions
 
  SAGA choreographer:
- - 
+ - Order Service -- /orderComplete, /orderCancel
+ - Payment Service -- /
+https://github.com/Java-Techie-jt/saga-choreography-example/blob/main/saga-choreography-pattern/order-service/src/main/java/com/javatechie/saga/order/service/OrderStatusPublisher.java
 
 
 # Event driven systems
@@ -49,3 +51,4 @@ Segregate Reads and Write to effectively scale the systems.
 
 
 Sidecar pattern
+- main core responsibility is there for the service. But can plug external service/component to it as added responsibility

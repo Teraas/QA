@@ -19,3 +19,10 @@ Among the replicas of the partitions, one will be leader and rest will be follow
 
 https://medium.com/@bectorhimanshu/setting-up-installing-and-starting-the-kafka-server-on-macos-7d505e32039a
 
+
+https://levelup.gitconnected.com/messaging-platform-comparison-nsq-and-apache-kafka-60f96f7466b1
+
+https://github.com/Titonu/concurrent-booking-system/blob/master/src/main/java/com/tito/kafka/Controller/TransactionController.java
+
+https://kafka.apache.org/quickstart
+

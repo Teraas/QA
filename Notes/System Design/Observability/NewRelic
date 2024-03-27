@@ -1,0 +1,12 @@
+How it aggregates?
+
+Has specific agents - for apps, languages, containers, infra etc.
+Does sampling efore the agent sends the data to NR server.
+
+For SpringApps:
+It intruments the class/methods by annotations.
+why not AOP:
+
+
+Types of logs - Metrics(low cardinality. more general/light logs/info. aggregated data), Events(user action and details. high cardinality), Logs.
+Agent config:
